@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { NavContext } from "../../contexts/NavContext";
+import Profile_submenu from "../Profile_submenu/Profile_submenu";
 
 const Header = () => {
+  
   const {toggleNav} = useContext(NavContext)
   return (
     <header>
@@ -34,13 +36,7 @@ const Header = () => {
             className="icn"
             alt=""
           />
-          <div className="dp">
-            <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-              className="dpicn"
-              alt="dp"
-            />
-          </div>
+          <Profile_submenu/>
         </div>
     </header>
   );
