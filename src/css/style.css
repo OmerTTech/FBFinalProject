@@ -19,10 +19,24 @@
   --one-use-color: #3f0097;
   --two-use-color: #5500cb;
 }
+
 body {
-  background-color: var(--background-color4);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
   max-width: 100%;
   overflow-x: hidden;
+}
+/* Light Theme */
+body.light {
+  --background-color: #cad7fda4;
+  --text-color: #000000;
+}
+
+/* Dark Theme */
+body.dark {
+  --background-color: #182039;
+  --text-color: #ffffff;
 }
 
 a {
