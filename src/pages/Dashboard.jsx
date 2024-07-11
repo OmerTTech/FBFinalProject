@@ -1,5 +1,5 @@
 import React from "react";
-import Searchbar from "../components/Searchbar/Searchbar";
+import Searchbar2 from "../components/Searchbar/Searchbar2";
 import Article_td from "../components/Article_td/Article_td";
 
 const Dashboard = () => {
@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <Searchbar />
+      <Searchbar2 />
       <div className="box-container">
         <div className="box box1">
           <div className="text">

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavContext } from "../../contexts/NavContext";
 import Profile_submenu from "../Profile_submenu/Profile_submenu";
+import Searchbar from "../Searchbar/Searchbar";
 
 const Header = () => {
   
@@ -18,16 +19,7 @@ const Header = () => {
           />
         </div>
 
-        <div className="searchbar">
-          <input type="text" placeholder="Search" />
-          <div className="searchbtn">
-            <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-              className="icn srchicn"
-              alt="search-icon"
-            />
-          </div>
-        </div>
+        <Searchbar/>
 
         <div className="message">
           <div className="circle"></div>
