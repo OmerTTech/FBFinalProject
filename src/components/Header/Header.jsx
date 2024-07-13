@@ -2,34 +2,40 @@ import React, { useContext } from "react";
 import { NavContext } from "../../contexts/NavContext";
 import Profile_submenu from "../Profile_submenu/Profile_submenu";
 import Searchbar from "../Searchbar/Searchbar";
+import { FiMenu } from "react-icons/fi";
+import { IoMdNotifications } from "react-icons/io";
 
 const Header = () => {
-  
-  const {toggleNav} = useContext(NavContext)
+  const { theme, toggleNav } = useContext(NavContext);
   return (
-    <header>
-        <div className="logosec">
-          <div className="logo">FinalProject</div>
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-            className="icn menuicn"
-            id="menuicn"
-            alt="menu-icon"
-            onClick={toggleNav}
-          />
-        </div>
+    <header style={{boxShadow:`${theme === "light" ? "1px 1px 15px rgba(161, 182, 253, 0.825)" : "1px 1px 25px rgba(20, 22, 31, 0.325)"}`}}>
+      <div className="logosec">
+        <div className="logo">FinalProject</div>
+        <FiMenu
+          className="icn menuicn"
+          style={{
+            fontSize: "3rem",
+            scale: "1.2",
+            color: "var(--secondary-color2)",
+          }}
+          id="menuicn"
+          alt="menu-icon"
+          onClick={toggleNav}
+        />
+      </div>
 
-        <Searchbar/>
+      <Searchbar />
 
-        <div className="message">
-          <div className="circle"></div>
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
-            className="icn"
-            alt=""
-          />
-          <Profile_submenu/>
-        </div>
+      <div className="message">
+        <div className="circle"></div>
+        <IoMdNotifications
+          style={{
+            fontSize: "2rem",
+            color: "var(--secondary-color2)",
+          }}
+        />
+        <Profile_submenu />
+      </div>
     </header>
   );
 };

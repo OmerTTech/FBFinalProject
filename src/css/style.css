@@ -13,30 +13,34 @@
   --background-color2: #ffffff;
   --background-color3: #ededed;
   --background-color4: #cad7fda4;
+  --background-color5: #dadada;
+  --dark-background-color1: rgb(45, 49, 58);
+  --dark-background-color2: #272b34;
+  --dark-background-color4: #363a45;
   --primary-color: #4b49ac;
   --secondary-color: #0c007d;
+  --secondary-color2: #0b006c;
   --Border-color: #3f0097;
   --one-use-color: #3f0097;
   --two-use-color: #5500cb;
+  --text-color: #000000;
+  --icon: #000249;
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--body-background-color);
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
   max-width: 100%;
   overflow-x: hidden;
 }
 /* Light Theme */
 body.light {
-  --background-color: #cad7fda4;
-  --text-color: #000000;
+  --body-background-color: var(--background-color4);
 }
 
 /* Dark Theme */
 body.dark {
-  --background-color: #182039;
-  --text-color: #ffffff;
+  --body-background-color: var(--dark-background-color);
 }
 
 a {
@@ -51,7 +55,6 @@ header {
   background-color: var(--background-color1);
   position: fixed;
   z-index: 100;
-  box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
   display: flex;
   justify-content: space-between;
   align-items: center;

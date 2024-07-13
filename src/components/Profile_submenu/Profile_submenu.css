@@ -24,7 +24,7 @@
   --nav-border-width: 0.0625em;
   --nav-shadow-color: rgba(0, 0, 0, 0.2);
   --nav-shadow-width: 0 1px 5px;
-  --nav-bg: #eee;
+  --nav-bg: var(--background-color1);
   --nav-font-family: Menlo, Roboto Mono, monospace;
   --nav-default-scale: 0.8;
   --nav-active-scale: 1.25;
@@ -34,7 +34,7 @@
   /* from properties to "unset" and the other to 0 */
   /* title */
   --nav-title-size: 0.625em;
-  --nav-title-color: #777;
+  --nav-title-color: var(--text-color);
   --nav-title-padding-x: 1rem;
   --nav-title-padding-y: 0.25em;
   /* nav button */
@@ -44,7 +44,7 @@
   --nav-button-font-size: 12px;
   --nav-button-hover-bg: #6495ed;
   --nav-logout-hover-bg: #f65;
-  --nav-button-hover-text-color: #fff;
+  --nav-button-hover-text-color: var(--background-color1);
   --nav-button-distance: 0.875em;
   /* underline */
   --underline-border-width: 0.0625em;
@@ -197,6 +197,11 @@
 
 /* actions */
 
+.popup-window ul .submenubtn,
+.popup-window ul .submenubtn svg,
+.popup-window ul .logout-btn{
+  color: var(--text-color);
+}
 .popup-window ul .submenubtn:hover,
 .popup-window ul .submenubtn:focus-visible,
 .popup-window ul .submenubtn:hover svg,
@@ -244,7 +249,7 @@
   opacity: 1;
 }
 li:hover .submenu_icon {
-  color: #fff !important;
+  color: var(--nav-button-hover-text-color) !important;
 }
 
 .dark-mode-switch {
