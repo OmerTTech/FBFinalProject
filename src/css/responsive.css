@@ -64,7 +64,8 @@
       background-color: var(--background-color3);
       padding: 0 20px;
       font-size: 15px;
-      border: 2px solid var(--secondary-color);
+      border: 2px solid var(--secondary-color2);
+      outline: none;
     }
   }
   

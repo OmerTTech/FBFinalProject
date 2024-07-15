@@ -4,6 +4,7 @@ import "./css/responsive.css";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import PublicRoutes from "./routes/PublicRoutes";
+import LoginPage from "./components/Auth/Login/LoginPage";
 
 function App() {
   return (

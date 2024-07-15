@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import "./ThemeSwitch.css";
-import { NavContext } from "../../contexts/NavContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 const ThemeSwitch = () => {
-  const { theme, toggleTheme } = useContext(NavContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const handleChange = (event) => {
     toggleTheme();
