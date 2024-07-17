@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const API_URL = '#####';
+const API_URL = 'http://localhost:5000';
 
 export const api = axios.create({
   baseURL: API_URL,
 });
+
+export const getLogin = () => api.get('/users');
 
 export const allData = () =>  api.get('/api/users/');
 export const getUsers = (page) => api.get(`/api/users?page=${page}`);
@@ -15,4 +17,3 @@ export const loginUser = (user) => api.post(`/api/login`, user);
 export const registerUser = (user) => api.post(`/api/register`, user);
 export const getLoginUser = (id) => api.get(`/api/login${id}`);
 export const singleUser = (id) => api.get(`/api/users/${id}`);
-

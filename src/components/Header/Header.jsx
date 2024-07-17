@@ -4,9 +4,11 @@ import Searchbar from "../Searchbar/Searchbar";
 import { FiMenu } from "react-icons/fi";
 import { IoMdNotifications } from "react-icons/io";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { NavContext } from "../../contexts/NavContext";
 
 const Header = () => {
-  const { theme, toggleNav } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const { toggleNav } = useContext(NavContext);
   return (
     <header
       style={{

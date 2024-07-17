@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { NavContext } from "../../contexts/NavContext";
 import "./Profile_submenu.css";
 import { FaRegUser } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -7,8 +6,10 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { LuLogOut } from "react-icons/lu";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile_submenu = () => {
+  const { logoutHandler } = useContext(AuthContext);
   return (
     <>
       <label className="popup">
@@ -61,7 +62,7 @@ const Profile_submenu = () => {
             <hr />
             <Link to="/login">
               <li>
-                <button className="logout-btn">
+                <button onClick={logoutHandler} className="logout-btn">
                   <LuLogOut
                     className="submenu_icon"
                     style={{ color: "#f75", fontSize: "15px" }}

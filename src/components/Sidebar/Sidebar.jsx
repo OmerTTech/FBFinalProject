@@ -6,11 +6,14 @@ import { BiSolidInstitution } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuLogOut } from "react-icons/lu";
-import { NavContext } from "../../contexts/NavContext";
 import { NavLink } from "react-router-dom";
+import { NavContext } from "../../contexts/NavContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Sidebar = () => {
   const { isNavOpen, isSmallScreen } = useContext(NavContext);
+  const { logoutHandler } = useContext(AuthContext);
+
   return (
     <div
       className={`navcontainer ${isNavOpen && "navclose"}`}
@@ -48,7 +51,7 @@ const Sidebar = () => {
                 <h3 className="h3-nav"> Settings</h3>
               </NavLink>
 
-              <span className="nav-option logout">
+              <span onClick={logoutHandler} className="nav-option logout">
                 <LuLogOut className="icon" />
                 <h3 className="h3-nav">Logout</h3>
               </span>

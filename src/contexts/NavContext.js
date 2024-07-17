@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from 'react';
 const NavContext = createContext();
 
 const NavProvider = ({ children }) => {
-  // Nav - Sidebar minimize and maximize button.
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 500);
 
@@ -11,7 +10,6 @@ const NavProvider = ({ children }) => {
     setIsNavOpen(!isNavOpen);
   };
 
-  // if Screen is smaller 500px to get true else false.
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 500);
