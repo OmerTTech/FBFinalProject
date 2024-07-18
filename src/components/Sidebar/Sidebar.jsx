@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import { RiDashboardFill, RiArticleLine } from "react-icons/ri";
 import { TbReportSearch } from "react-icons/tb";
 import { BiSolidInstitution } from "react-icons/bi";
+import { GrUserAdmin } from "react-icons/gr";
 import { FaRegUser } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { LuLogOut } from "react-icons/lu";
@@ -12,7 +13,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Sidebar = () => {
   const { isNavOpen, isSmallScreen } = useContext(NavContext);
-  const { logoutHandler } = useContext(AuthContext);
+  const { logoutHandler, admin } = useContext(AuthContext);
 
   return (
     <div
@@ -31,15 +32,22 @@ const Sidebar = () => {
             <h3 className="h3-nav"> Articles</h3>
           </NavLink>
 
-          <NavLink to="report" className="nav-option option3">
+          <NavLink to="/report" className="nav-option option3">
             <TbReportSearch className="icon" />
             <h3 className="h3-nav"> Report</h3>
           </NavLink>
 
-          <NavLink to="institution" className="nav-option option4">
+          <NavLink to="/institution" className="nav-option option4">
             <BiSolidInstitution className="icon" />
             <h3 className="h3-nav"> Institution</h3>
           </NavLink>
+
+          {admin && (
+            <NavLink to="/admin" className="nav-option option4">
+              <GrUserAdmin className="icon" />
+              <h3 className="h3-nav"> Admin</h3>
+            </NavLink>
+          )}
           {isSmallScreen && (
             <>
               <NavLink to="profile" className="nav-option option5">

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import "../Auth.css";
 import { FiAtSign } from "react-icons/fi";
 import { IoLockClosedOutline } from "react-icons/io5";
@@ -17,7 +17,7 @@ const LoginPage = () => {
   });
   const [emailBorder, setEmailBorder] = useState("");
   const [passwordBorder, setPasswordBorder] = useState("");
-  const { setToken } = useContext(AuthContext);
+  const { setToken, setTeacher, setAdmin } = useContext(AuthContext);
 
   const getShowPass = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -68,13 +68,26 @@ const LoginPage = () => {
       if (user) {
         if (user.password === inputValues.password) {
           const fakeToken = user.token;
+          const fakeRole = user.role;
           if (rememberMe) {
             localStorage.setItem("token", fakeToken);
+            localStorage.setItem("role", fakeRole);
           } else {
             sessionStorage.setItem("token", fakeToken);
+            sessionStorage.setItem("role", fakeRole);
           }
-
           setToken(fakeToken);
+          
+          if (fakeRole === "teacher") {
+            setTeacher(true);
+            setAdmin(false);
+          } else if (fakeRole === "admin") {
+            setTeacher(true);
+            setAdmin(true);
+          } else {
+            setTeacher(false);
+            setAdmin(false);
+          }
         } else {
           toast.error("Yanlış şifre");
           setPasswordBorder("red");

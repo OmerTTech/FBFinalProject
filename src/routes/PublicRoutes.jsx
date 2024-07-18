@@ -7,7 +7,7 @@ import RegisterPage from "../components/Auth/Register/RegisterPage";
 import { AuthContext } from "../contexts/AuthContext";
 
 const PublicRoutes = () => {
-  const { token } = useContext(AuthContext);
+  const { token, admin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,6 +22,7 @@ const PublicRoutes = () => {
       }
     }
   }, [token, navigate, location]);
+
   return (
     <>
       {!token && (
@@ -36,6 +37,11 @@ const PublicRoutes = () => {
             <Route path="/" element={<Dashboard />} />
           </Routes>
         </PublicLayout>
+      )}
+      {token && admin && (
+        <Routes>
+          <Route path="/admin" />
+        </Routes>
       )}
     </>
   );
