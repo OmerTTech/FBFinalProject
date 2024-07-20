@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile_submenu = () => {
-  const { logoutHandler } = useContext(AuthContext);
+  const { logoutHandler, userData } = useContext(AuthContext);
   return (
     <>
       <label className="popup">
@@ -22,14 +22,18 @@ const Profile_submenu = () => {
           />
         </div>
         <nav className="popup-window">
-          <legend>Actions</legend>
           <ul>
+              <li className="text-center" style={{fontSize:`${userData.email && userData.email.length >= 28 ? "0.6rem" : "0.75rem"}`}}>
+              {userData.email && userData.email.length >= 28 ? userData.email.slice(0,28) + ".." : userData.email}
+              </li>
+            <hr />
+            <legend>Actions</legend>
             <Link to="/profile">
               <li>
                 <button className="submenubtn">
-                  <FaRegUser
-                    style={{ fontSize: "13.5px", marginLeft: "1.75px" }}
-                  />
+                <FaRegUser
+                  style={{ fontSize: "13.5px", marginLeft: "1.75px" }}
+                />
                   <span>View Profile</span>
                 </button>
               </li>

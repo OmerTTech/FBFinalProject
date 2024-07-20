@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import { RiDashboardFill, RiArticleLine } from "react-icons/ri";
 import { TbReportSearch } from "react-icons/tb";
 import { BiSolidInstitution } from "react-icons/bi";
+import { PiChalkboardTeacherFill } from "react-icons/pi";
 import { GrUserAdmin } from "react-icons/gr";
 import { FaRegUser } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -13,7 +14,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Sidebar = () => {
   const { isNavOpen, isSmallScreen } = useContext(NavContext);
-  const { logoutHandler, admin } = useContext(AuthContext);
+  const { logoutHandler, teacher ,admin } = useContext(AuthContext);
 
   return (
     <div
@@ -42,6 +43,12 @@ const Sidebar = () => {
             <h3 className="h3-nav"> Institution</h3>
           </NavLink>
 
+          {teacher && (
+            <NavLink to="/teachers" className="nav-option option4">
+              <PiChalkboardTeacherFill className="icon" />
+              <h3 className="h3-nav"> Teachers</h3>
+            </NavLink>
+          )}
           {admin && (
             <NavLink to="/admin" className="nav-option option4">
               <GrUserAdmin className="icon" />

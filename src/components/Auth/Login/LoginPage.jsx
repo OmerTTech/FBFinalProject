@@ -71,10 +71,10 @@ const LoginPage = () => {
           const fakeRole = user.role;
           if (rememberMe) {
             localStorage.setItem("token", fakeToken);
-            localStorage.setItem("role", fakeRole);
+            localStorage.setItem("userData", JSON.stringify(user));
           } else {
             sessionStorage.setItem("token", fakeToken);
-            sessionStorage.setItem("role", fakeRole);
+            sessionStorage.setItem("userData", JSON.stringify(user));
           }
           setToken(fakeToken);
           
