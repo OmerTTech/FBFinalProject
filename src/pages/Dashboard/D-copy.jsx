@@ -1,6 +1,6 @@
 import React from "react";
-import Searchbar2 from "../components/Searchbar/Searchbar2";
-import Article_td from "../components/Article_td/Article_td";
+import Searchbar2 from "../../components/Searchbar/Searchbar2";
+import Article_td from "../../components/Article_td/Article_td";
 
 const Dashboard = () => {
   const articleComponents = [];
@@ -17,7 +17,6 @@ const Dashboard = () => {
             <h2 className="topic-heading">60.5k</h2>
             <h2 className="topic">Article Views</h2>
           </div>
-
           <img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
             alt="Views"
@@ -29,7 +28,6 @@ const Dashboard = () => {
             <h2 className="topic-heading">150</h2>
             <h2 className="topic">Likes</h2>
           </div>
-
           <img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
             alt="likes"
@@ -41,7 +39,6 @@ const Dashboard = () => {
             <h2 className="topic-heading">320</h2>
             <h2 className="topic">Comments</h2>
           </div>
-
           <img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
             alt="comments"
@@ -53,7 +50,6 @@ const Dashboard = () => {
             <h2 className="topic-heading">70</h2>
             <h2 className="topic">Published</h2>
           </div>
-
           <img
             src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png"
             alt="published"

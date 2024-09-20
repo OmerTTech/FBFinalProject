@@ -4,10 +4,11 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [userData, setUserData] = useState({})
-    const [token, setToken] = useState(false)
+    const [token, setToken] = useState(null)
     const [student, setStudent] = useState(true)
     const [teacher, setTeacher] = useState(false)
     const [admin, setAdmin] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         let savedToken = localStorage.getItem('token');
@@ -20,20 +21,15 @@ const AuthProvider = ({ children }) => {
             setToken(savedToken);
             setUserData(getUserData)
 
-            if (getUserData.role === "teacher") {
-                setTeacher(true);
-                setStudent(false);
-                setAdmin(false);
-            } else if (getUserData.role === "admin") {
-                setTeacher(true);
+            if (getUserData.role === "admin") {
                 setAdmin(true);
-                setStudent(true);
+            } else if (getUserData.role === "teacher") {
+                setTeacher(true);
             } else {
-                setTeacher(false);
-                setAdmin(false);
                 setStudent(true);
             }
         }
+        setLoading(false)
     }, []);
 
     const logoutHandler = () => {
@@ -48,7 +44,7 @@ const AuthProvider = ({ children }) => {
             token, setToken, logoutHandler, 
             student, teacher, admin,
             setStudent, setTeacher, setAdmin,
-            userData, setUserData,
+            userData, setUserData, loading
         }}>
             {children}
         </AuthContext.Provider>

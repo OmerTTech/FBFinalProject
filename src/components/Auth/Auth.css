@@ -113,3 +113,8 @@
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
+
+.login-icons {
+  color: #339;
+  font-size: 1.25rem;
+}

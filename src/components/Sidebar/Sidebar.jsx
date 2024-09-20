@@ -1,20 +1,33 @@
 import React, { useContext } from "react";
 import "./Sidebar.css";
-import { RiDashboardFill, RiArticleLine } from "react-icons/ri";
-import { TbReportSearch } from "react-icons/tb";
-import { BiSolidInstitution } from "react-icons/bi";
-import { PiChalkboardTeacherFill } from "react-icons/pi";
+import {
+  IoHomeOutline,
+  IoCalendarOutline,
+  IoSettingsOutline,
+  IoNotificationsOutline,
+} from "react-icons/io5";
+import { PiBookOpenText } from "react-icons/pi";
+import { LiaUserCogSolid } from "react-icons/lia";
+import { MdOutlineLibraryBooks } from "react-icons/md";
+import { BsClipboard2Plus } from "react-icons/bs";
+import { BiBookAdd } from "react-icons/bi";
+import { TbClipboardData } from "react-icons/tb";
 import { GrUserAdmin } from "react-icons/gr";
+import { TfiAnnouncement } from "react-icons/tfi";
 import { FaRegUser } from "react-icons/fa";
-import { IoSettingsOutline } from "react-icons/io5";
-import { LuLogOut } from "react-icons/lu";
+import {
+  LuLogOut,
+  LuClipboardList,
+  LuClipboardSignature,
+  LuClipboardCheck,
+} from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { NavContext } from "../../contexts/NavContext";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Sidebar = () => {
   const { isNavOpen, isSmallScreen } = useContext(NavContext);
-  const { logoutHandler, teacher ,admin } = useContext(AuthContext);
+  const { logoutHandler, teacher, admin } = useContext(AuthContext);
 
   return (
     <div
@@ -23,52 +36,90 @@ const Sidebar = () => {
     >
       <nav className="sidebar">
         <div className="nav-upper-options">
-          <NavLink to="/" className="nav-option option1">
-            <RiDashboardFill className="icon" />
-            <h3 className="h3-nav"> Dashboard</h3>
+          <NavLink to="/" className="nav-option">
+            <IoHomeOutline className="icon" />
+            <h4 className="h4-nav">Home</h4>
           </NavLink>
-
-          <NavLink to="/articles" className="nav-option option2">
-            <RiArticleLine className="icon" />
-            <h3 className="h3-nav"> Articles</h3>
-          </NavLink>
-
-          <NavLink to="/report" className="nav-option option3">
-            <TbReportSearch className="icon" />
-            <h3 className="h3-nav"> Report</h3>
-          </NavLink>
-
-          <NavLink to="/institution" className="nav-option option4">
-            <BiSolidInstitution className="icon" />
-            <h3 className="h3-nav"> Institution</h3>
-          </NavLink>
-
-          {teacher && (
-            <NavLink to="/teachers" className="nav-option option4">
-              <PiChalkboardTeacherFill className="icon" />
-              <h3 className="h3-nav"> Teachers</h3>
+          {/* ONLY STUDENTS: */}
+          {!teacher && (
+            <NavLink end to="/courses/register" className="nav-option">
+              <MdOutlineLibraryBooks className="icon" />
+              <h4 className="h4-nav">All Courses </h4>
             </NavLink>
           )}
+          {/* ONLY STUDENTS. */}
+          <NavLink end to={teacher ? "/my-courses" : "/courses"} className="nav-option">
+            <PiBookOpenText className="icon" />
+            <h4 className="h4-nav">My Courses</h4>
+          </NavLink>
           {admin && (
-            <NavLink to="/admin" className="nav-option option4">
-              <GrUserAdmin className="icon" />
-              <h3 className="h3-nav"> Admin</h3>
+            <NavLink end to="/courses/manage" className="nav-option">
+              <BiBookAdd className="icon" />
+              <h4 className="h4-nav">Manage Courses</h4>
+            </NavLink>
+          )}
+          <NavLink end to="/exams" className="nav-option">
+            {(!admin || !teacher) ? (
+              <LuClipboardSignature className="icon" />
+            ) : (
+              <LuClipboardList className="icon" />
+            )}
+            <h4 className="h4-nav">My Exams</h4>
+          </NavLink>
+          {admin && (
+            <NavLink end to="/exams/manage" className="nav-option">
+              <TbClipboardData className="icon" />
+              <h4 className="h4-nav">Manage Exams</h4>
+            </NavLink>
+          )}
+          {/* ONLY STUDENTS: */}
+          {!teacher && (
+            <NavLink end to="/exams/register" className="nav-option">
+              <BsClipboard2Plus className="icon" />
+              <h4 className="h4-nav">Register Exams </h4>
+            </NavLink>
+          )}
+          {/* ONLY STUDENTS. */}
+          {(admin || teacher) && (
+            <NavLink to="/exam/results" className="nav-option">
+              <LuClipboardCheck className="icon" />
+              <h4 className="h4-nav">Exam results</h4>
+            </NavLink>
+          )}
+          <NavLink to="/class/schedule" className="nav-option">
+            <IoCalendarOutline className="icon" />
+            <h4 className="h4-nav">Class Schedule</h4>
+          </NavLink>
+          {(admin || teacher) && (
+            <NavLink to="/exam/results" className="nav-option">
+              <TfiAnnouncement className="icon" />
+              <h4 className="h4-nav">Announcement</h4>
+            </NavLink>
+          )}
+          <NavLink to="/notifications" className="nav-option">
+            <IoNotificationsOutline className="icon" />
+            <h4 className="h4-nav">Notifications</h4>
+          </NavLink>
+          {admin && (
+            <NavLink to="/manage/users" className="nav-option">
+              <LiaUserCogSolid className="icon" />
+              <h4 className="h4-nav">Manage Users</h4>
             </NavLink>
           )}
           {isSmallScreen && (
             <>
-              <NavLink to="profile" className="nav-option option5">
+              <NavLink to="profile" className="nav-option">
                 <FaRegUser className="icon" />
-                <h3 className="h3-nav"> Profile</h3>
+                <h4 className="h4-nav">Profile</h4>
               </NavLink>
-              <NavLink to="settings" className="nav-option option6">
+              <NavLink to="settings" className="nav-option">
                 <IoSettingsOutline className="icon" />
-                <h3 className="h3-nav"> Settings</h3>
+                <h4 className="h4-nav">Settings</h4>
               </NavLink>
 
               <span onClick={logoutHandler} className="nav-option logout">
                 <LuLogOut className="icon" />
-                <h3 className="h3-nav">Logout</h3>
+                <h4 className="h4-nav">Logout</h4>
               </span>
             </>
           )}

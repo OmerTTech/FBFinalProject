@@ -17,7 +17,8 @@ const LoginPage = () => {
   });
   const [emailBorder, setEmailBorder] = useState("");
   const [passwordBorder, setPasswordBorder] = useState("");
-  const { setToken, setTeacher, setAdmin } = useContext(AuthContext);
+  const { setUserData, setToken, setTeacher, setAdmin } =
+    useContext(AuthContext);
 
   const getShowPass = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -77,13 +78,14 @@ const LoginPage = () => {
             sessionStorage.setItem("userData", JSON.stringify(user));
           }
           setToken(fakeToken);
-          
+          setUserData(user);
+
           if (fakeRole === "teacher") {
             setTeacher(true);
             setAdmin(false);
           } else if (fakeRole === "admin") {
-            setTeacher(true);
             setAdmin(true);
+            setTeacher(false);
           } else {
             setTeacher(false);
             setAdmin(false);
@@ -111,7 +113,7 @@ const LoginPage = () => {
           <label>Email </label>
         </div>
         <div className={`inputForm ${emailBorder && "error"}`}>
-          <FiAtSign style={{ fontSize: "1.25rem" }} />
+          <FiAtSign className="login-icons" />
           <input
             type="text"
             className="input"
@@ -126,7 +128,7 @@ const LoginPage = () => {
           <label>Password</label>
         </div>
         <div className={`inputForm ${passwordBorder && "error"}`}>
-          <IoLockClosedOutline style={{ fontSize: "1.25rem" }} />
+          <IoLockClosedOutline className="login-icons" />
           <input
             type={`${showPassword ? "text" : "password"}`}
             className="input"
