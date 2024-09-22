@@ -1,0 +1,12 @@
+.semestr-text {
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+}
+.semestr-text.active {
+    font-weight: 500;
+    color: #f0ad4e;
+}
+.semestr-box{
+    box-shadow: inset 0px 0px 5px 2.5px #44f;
+}

@@ -8,11 +8,10 @@ import {
 } from "react-icons/io5";
 import { PiBookOpenText } from "react-icons/pi";
 import { LiaUserCogSolid } from "react-icons/lia";
-import { MdOutlineLibraryBooks } from "react-icons/md";
+import { MdOutlineLibraryBooks, MdOutlineAssignment } from "react-icons/md";
 import { BsClipboard2Plus } from "react-icons/bs";
 import { BiBookAdd } from "react-icons/bi";
 import { TbClipboardData } from "react-icons/tb";
-import { GrUserAdmin } from "react-icons/gr";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { FaRegUser } from "react-icons/fa";
 import {
@@ -48,7 +47,11 @@ const Sidebar = () => {
             </NavLink>
           )}
           {/* ONLY STUDENTS. */}
-          <NavLink end to={teacher ? "/my-courses" : "/courses"} className="nav-option">
+          <NavLink
+            end
+            to={teacher ? "/my-courses" : "/courses"}
+            className="nav-option"
+          >
             <PiBookOpenText className="icon" />
             <h4 className="h4-nav">My Courses</h4>
           </NavLink>
@@ -58,13 +61,29 @@ const Sidebar = () => {
               <h4 className="h4-nav">Manage Courses</h4>
             </NavLink>
           )}
+          {/* ONLY STUDENTS: */}
+          {(!admin || !teacher) && (
+            <NavLink end to="/assignments" className="nav-option">
+              <MdOutlineAssignment className="icon" />
+              <h4 className="h4-nav">Assignments</h4>
+            </NavLink>
+          )}
+          {/* ONLY STUDENTS. */}
+          {/* ONLY Students and Admin: */}
+          {!teacher && (
+            <NavLink end to="/exams/register" className="nav-option">
+              <BsClipboard2Plus className="icon" />
+              <h4 className="h4-nav">Register Exams </h4>
+            </NavLink>
+          )}
+          {/* ONLY Students and Admin. */}
           <NavLink end to="/exams" className="nav-option">
-            {(!admin || !teacher) ? (
+            {admin || teacher ? (
               <LuClipboardSignature className="icon" />
             ) : (
               <LuClipboardList className="icon" />
             )}
-            <h4 className="h4-nav">My Exams</h4>
+            <h4 className="h4-nav">Exam Results</h4>
           </NavLink>
           {admin && (
             <NavLink end to="/exams/manage" className="nav-option">
@@ -72,14 +91,7 @@ const Sidebar = () => {
               <h4 className="h4-nav">Manage Exams</h4>
             </NavLink>
           )}
-          {/* ONLY STUDENTS: */}
-          {!teacher && (
-            <NavLink end to="/exams/register" className="nav-option">
-              <BsClipboard2Plus className="icon" />
-              <h4 className="h4-nav">Register Exams </h4>
-            </NavLink>
-          )}
-          {/* ONLY STUDENTS. */}
+          
           {(admin || teacher) && (
             <NavLink to="/exam/results" className="nav-option">
               <LuClipboardCheck className="icon" />

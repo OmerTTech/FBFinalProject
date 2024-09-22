@@ -1,0 +1,50 @@
+.course-card {
+  position: relative;
+  box-shadow: 1px 1px 12px #333;
+  margin: 5px;
+  padding: 20px 10px;
+  background-color: #fff;
+  height: 100px;
+  border-radius: 15px;
+  transition: 0.3s linear all;
+}
+
+.course-card:hover {
+  box-shadow: 1px 1px 12px #bababa;
+  transition: 0.3s linear all;
+}
+
+.course-card.primary {
+  background-color: #0C7F9F;
+  outline: 3px solid #0C6E8F;
+  color: #fff;
+}
+
+.course-card .icon {
+  position: absolute;
+  bottom: 5px;
+  font-size: 3.5em;
+  opacity: 0.2;
+}
+
+.course-card .course-title {
+  font-size: 16px;
+  display: block;
+  padding-right: 5px;
+}
+@media only screen and (max-width: 1300px) {
+  .course-card .course-title {
+    font-size: 14px;
+  }
+}
+
+.course-card .course-name {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 18px;
+  font-style: italic;
+  text-transform: capitalize;
+  opacity: 0.5;
+  display: block;
+}
