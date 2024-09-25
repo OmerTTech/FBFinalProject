@@ -1,11 +1,15 @@
 import React from "react";
 import "./Semestr.css";
+import { Link, NavLink, useParams } from "react-router-dom";
 
-const Semestr = () => {
+const Semestr = ({page}) => {
+  const {id} = useParams()
+  console.log(id);
+  
   return (
-    <div className="semestr-box bg-primary mt-4 mx-auto p-2 rounded-5 col-4 d-flex justify-content-around align-items-center">
-      <span className="semestr-text active">Semestr 1</span>
-      <span className="semestr-text">Semestr 2</span>
+    <div className="semestr-box bg-primary my-4 mx-auto p-2 rounded-5 col-md-4 d-flex justify-content-around align-items-center">
+      <NavLink to={`/${page}/1`} className="semestr-text">Semestr 1</NavLink>
+      <NavLink to={`/${page}/2`} className="semestr-text">Semestr 2</NavLink>
     </div>
   );
 };

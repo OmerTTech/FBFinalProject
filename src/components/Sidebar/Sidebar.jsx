@@ -49,8 +49,12 @@ const Sidebar = () => {
           {/* ONLY STUDENTS. */}
           <NavLink
             end
-            to={teacher ? "/my-courses" : "/courses"}
-            className="nav-option"
+            to="/courses/1"
+            className={
+              window.location.pathname.match(/^\/courses\/\d+$/)
+                ? "nav-option active"
+                : "nav-option"
+            }
           >
             <PiBookOpenText className="icon" />
             <h4 className="h4-nav">My Courses</h4>
@@ -63,7 +67,15 @@ const Sidebar = () => {
           )}
           {/* ONLY STUDENTS: */}
           {(!admin || !teacher) && (
-            <NavLink end to="/assignments" className="nav-option">
+            <NavLink
+              end
+              to="/assignments/1"
+              className={
+                window.location.pathname.match(/^\/assignments\/\d+$/)
+                  ? "nav-option active"
+                  : "nav-option"
+              }
+            >
               <MdOutlineAssignment className="icon" />
               <h4 className="h4-nav">Assignments</h4>
             </NavLink>
@@ -91,7 +103,7 @@ const Sidebar = () => {
               <h4 className="h4-nav">Manage Exams</h4>
             </NavLink>
           )}
-          
+
           {(admin || teacher) && (
             <NavLink to="/exam/results" className="nav-option">
               <LuClipboardCheck className="icon" />

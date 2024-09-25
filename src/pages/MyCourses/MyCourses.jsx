@@ -9,9 +9,9 @@ const MyCourses = () => {
     <div>
         <Coursesboxs/>
 
-        <Semestr/>
+        <Semestr page="courses"/>
 
-        <Artable title="My Courses"/>
+        <Artable pageUrl="courses" title="My Courses"/>
     </div>
   )
 }

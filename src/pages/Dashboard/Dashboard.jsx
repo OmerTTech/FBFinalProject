@@ -2,9 +2,9 @@ import React from "react";
 import Searchbar2 from "../../components/Searchbar/Searchbar2";
 import Infoboxs from "../../components/Infoboxs/Infoboxs";
 import Artable from "../../components/Article_td/Artable";
+import NotificationBoxes from "../../components/NotificationBoxes/NotificationBoxes";
 
 const Dashboard = () => {
-
   return (
     <>
       <Searchbar2 />
@@ -14,8 +14,8 @@ const Dashboard = () => {
       />
 
       <Infoboxs />
-
-      <Artable/>
+      
+      <NotificationBoxes/>
     </>
   );
 };

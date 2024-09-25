@@ -7,6 +7,8 @@ import RegisterPage from "../components/Auth/Register/RegisterPage";
 import { AuthContext } from "../contexts/AuthContext";
 import AllCourses from "../pages/AllCourses/AllCourses";
 import MyCourses from "../pages/MyCourses/MyCourses";
+import NotFound from "../components/NotFound/NotFound";
+import Assignments from "../pages/Assignments/Assignments";
 
 const PublicRoutes = () => {
   const { token, admin, loading } = useContext(AuthContext);
@@ -50,7 +52,9 @@ const PublicRoutes = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/courses/register" element={<AllCourses />} />
-            <Route path="/courses" element={<MyCourses />} />
+            <Route path="/courses/:id" element={<MyCourses />} />
+            <Route path="/assignments/:id" element={<Assignments />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </PublicLayout>
       )}

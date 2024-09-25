@@ -1,0 +1,24 @@
+.notifications-container {
+  height: 49.4vh;
+  overflow: auto;
+}
+
+.notification-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.new-task {
+  border-left: 4px solid #77f;
+}
+
+.upcoming-exam {
+  border-left: 4px solid orange;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #777;
+}

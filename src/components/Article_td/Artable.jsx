@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Article_td from "./Article_td";
 import "./Artable.css";
+import { Link, useParams } from "react-router-dom";
+import TablePagination from "../TablePagination/TablePagination";
 
-const Artable = ({ title, tableHead }) => {
+const Artable = ({ title, tableHead, pageUrl }) => {
+  const { id } = useParams();
   return (
     <div className="report-container my-4">
       {title && (
@@ -11,7 +14,7 @@ const Artable = ({ title, tableHead }) => {
         </div>
       )}
 
-      <div className="report-body">
+      <div className={`report-body px-3 pt-3 ${!pageUrl && "mb-3"}`}>
         {tableHead && (
           <div className="report-topic-heading">
             {tableHead.map((item) => (
@@ -25,6 +28,9 @@ const Artable = ({ title, tableHead }) => {
             <Article_td key={i} />
           ))}
         </div>
+        {pageUrl && 
+        <TablePagination page={pageUrl}/>
+        }
       </div>
     </div>
   );

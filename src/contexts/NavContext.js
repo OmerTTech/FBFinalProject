@@ -5,6 +5,7 @@ const NavContext = createContext();
 const NavProvider = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 500);
+  const [isMobile, setMobile] = useState(window.innerWidth < 600);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -13,6 +14,7 @@ const NavProvider = ({ children }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 500);
+      setMobile(window.innerWidth < 600);
     };
     window.addEventListener('resize', handleResize);
     return () => {
@@ -21,7 +23,7 @@ const NavProvider = ({ children }) => {
   }, []);
 
   return (
-    <NavContext.Provider value={{ isNavOpen, toggleNav, isSmallScreen }}>
+    <NavContext.Provider value={{ isNavOpen, toggleNav, isSmallScreen, isMobile }}>
       {children}
     </NavContext.Provider>
   );
