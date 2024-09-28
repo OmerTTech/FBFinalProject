@@ -18,10 +18,12 @@ const ThemeProvider = ({ children }) => {
         root.style.setProperty('--nav-bg', theme === 'dark' ? 'var(--dark-background-color1)' : null);
         root.style.setProperty('--text-color', theme === 'light' ? '#000' : '#fff');
         root.style.setProperty('--text-color-rev', theme === 'light' ? '#fff' : '#000');
+        root.style.setProperty('--text-color-gray', theme === 'light' ? '#bbb' : '#fff');
         root.style.setProperty('--icon', theme === 'light' ? '#000249' : 'var(--primary-color)');
         root.style.setProperty('--Border-color2', theme === 'light' ? '#00149796' : 'var(--primary-color)');
         root.style.setProperty('--secondary-color2', theme === 'light' ? '#0b006c' : 'var(--primary-color)');
         root.style.setProperty('--background-color5', theme === 'light' ? '#dadada' : 'var(--dark-background-color1)');
+        root.style.setProperty('--background-color6', theme === 'light' ? '#f9f9f9' : 'var(--dark-background-color1)');
     }, [theme]);
 
     return (

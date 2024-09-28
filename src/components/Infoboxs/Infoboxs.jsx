@@ -6,7 +6,7 @@ import { PiChalkboardTeacher, PiStudent } from "react-icons/pi";
 
 const Infoboxs = () => {
   return (
-    <div className="container">
+    <div className="container mb-4">
         <div className="row">
           <div className="col-md-3">
             <div className="card-counter primary">

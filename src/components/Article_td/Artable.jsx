@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Article_td from "./Article_td";
 import "./Artable.css";
-import { Link, useParams } from "react-router-dom";
 import TablePagination from "../TablePagination/TablePagination";
 
 const Artable = ({ title, tableHead, pageUrl }) => {
-  const { id } = useParams();
   return (
     <div className="report-container my-4">
       {title && (

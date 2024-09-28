@@ -44,13 +44,12 @@ const Assignments = () => {
     },
   ];
 
-  const { id } = useParams();
   return (
     <>
       <Semestr page={"assignments"} />
 
       <div class="Assignment table-container mx-auto">
-        <table className="">
+        <table>
           <thead>
             <tr>
               <th colSpan={2}>Unit</th>

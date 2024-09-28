@@ -1,11 +1,11 @@
 .tablePagination button {
   border-radius: 5px;
-  color: #000;
+  color: var(--text-color);
   padding: 5px 10px;
   height: 25px;
   cursor: pointer;
 }
 
 .tablePagination button:hover {
-  color: #fff;
+  color: var(--text-color-rev);
 }

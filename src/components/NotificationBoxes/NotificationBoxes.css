@@ -1,21 +1,29 @@
 .notifications-container {
-  height: 49.4vh;
+  height: auto;
+  max-height: 49.5vh;
   overflow: auto;
+  border-radius: 6px;
 }
 
-.notification-box {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+.notification {
+  background-color: var(--background-color1);
+  border: 1px solid var(--text-color-gray);
+}
+.notification :is(h5, p, small) {
+  color: var(--text-color);
 }
 
-.new-task {
+.new-task-box {
   border-left: 4px solid #77f;
 }
-
-.upcoming-exam {
+.new-task {
+  color: #77f;
+}
+.upcoming-exam-box {
   border-left: 4px solid orange;
+}
+.upcoming-exam {
+  color: orange;
 }
 
 .timestamp {

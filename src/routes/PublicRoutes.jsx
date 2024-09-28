@@ -9,6 +9,7 @@ import AllCourses from "../pages/AllCourses/AllCourses";
 import MyCourses from "../pages/MyCourses/MyCourses";
 import NotFound from "../components/NotFound/NotFound";
 import Assignments from "../pages/Assignments/Assignments";
+import Notifications from "../pages/Notifications/Notifications";
 
 const PublicRoutes = () => {
   const { token, admin, loading } = useContext(AuthContext);
@@ -54,6 +55,7 @@ const PublicRoutes = () => {
             <Route path="/courses/register" element={<AllCourses />} />
             <Route path="/courses/:id" element={<MyCourses />} />
             <Route path="/assignments/:id" element={<Assignments />} />
+            <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </PublicLayout>

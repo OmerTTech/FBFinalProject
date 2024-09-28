@@ -14,6 +14,7 @@
   --background-color3: #ededed;
   --background-color4: #cad7fda4;
   --background-color5: #dadada;
+  --background-color6: #f9f9f9;
   --dark-background-color1: rgb(45, 49, 58);
   --dark-background-color2: #272b34;
   --dark-background-color4: #363a45;
@@ -27,6 +28,7 @@
   --two-use-color: #5500cb;
   --text-color: #000;
   --text-color-rev: #fff;
+  --text-color-gray: #bbb;
   --icon: #000249;
 }
 
