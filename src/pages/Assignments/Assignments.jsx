@@ -48,7 +48,7 @@ const Assignments = () => {
     <>
       <Semestr page={"assignments"} />
 
-      <div class="Assignment table-container mx-auto">
+      <div className="Assignment table-container mx-auto">
         <table>
           <thead>
             <tr>

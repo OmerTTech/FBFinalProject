@@ -1,6 +1,5 @@
 .notifications-container {
   height: auto;
-  max-height: 49.5vh;
   overflow: auto;
   border-radius: 6px;
 }

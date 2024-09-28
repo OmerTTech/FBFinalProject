@@ -2,8 +2,7 @@ import React from "react";
 import "./NotificationBoxes.css";
 import BoxOfNotification from "./BoxOfNotification";
 
-const NotificationBoxes = () => {
-
+const NotificationBoxes = ({ isPageDashboard }) => {
   const getFormattedDateTime = (dateTimeString) => {
     const dateTimeParts = dateTimeString.split(" ");
     const dateParts = dateTimeParts[0].split(".");
@@ -27,14 +26,22 @@ const NotificationBoxes = () => {
 
   return (
     <>
-      <div class="notifications-container mt-2 d-flex flex-column">
+      <div
+        className="notifications-container d-flex flex-column"
+        style={{ maxHeight: (isPageDashboard) ? "49.5vh" : "100vh"}}
+      >
         <BoxOfNotification
           type={"newTask"}
           from={"Programming lesson"}
           time={getFormattedDateTime("09.09.2024 14:30")}
-          />
+        />
         <BoxOfNotification
           type={"newTask"}
+          from={"Programming lesson"}
+          time={getFormattedDateTime("09.09.2024 14:30")}
+        />
+        <BoxOfNotification
+          type={"upcomingExam"}
           from={"Programming lesson"}
           time={getFormattedDateTime("09.09.2024 14:30")}
         />

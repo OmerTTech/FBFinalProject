@@ -15,20 +15,20 @@ const BoxOfNotification = ({ type, from, time }) => {
   };
   return (
     <div
-      class={`card notification new-assignment ${
+      className={`card notification new-assignment ${
         boxType[type] || "Not Found.."
       }`}
     >
-      <div class="card-body d-flex justify-content-between">
+      <div className="card-body d-flex justify-content-between">
         <div>
-          <h5 class="card-title">{titleForType[type] || "Not Found.."}</h5>
-          <p class="card-text">
+          <h5 className="card-title">{titleForType[type] || "Not Found.."}</h5>
+          <p className="card-text">
             {`${textForType[type] || "Not Found.."} `}
             <span className="font-monospace">{from || "Not Found.."}</span>.
           </p>
         </div>
         {time && (
-          <p class="card-text text-muted">
+          <p className="card-text text-muted">
             <small>{time}</small>
           </p>
         )}

@@ -110,9 +110,9 @@ const Sidebar = () => {
               <h4 className="h4-nav">Exam results</h4>
             </NavLink>
           )}
-          <NavLink to="/class/schedule" className="nav-option">
+          <NavLink to="/className/schedule" className="nav-option">
             <IoCalendarOutline className="icon" />
-            <h4 className="h4-nav">Class Schedule</h4>
+            <h4 className="h4-nav">class Schedule</h4>
           </NavLink>
           {(admin || teacher) && (
             <NavLink to="/exam/results" className="nav-option">

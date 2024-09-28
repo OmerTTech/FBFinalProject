@@ -12,7 +12,7 @@ const Coursesboxs = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="container mb-4">
       <div className="row">
         {corsboxes.slice(0, 4).map((box, index) => (
           <Corsbox key={index} title={box.title} text={box.text} />

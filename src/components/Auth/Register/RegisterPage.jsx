@@ -20,23 +20,23 @@ const RegisterPage = () => {
       className="d-flex justify-content-center align-items-center"
       style={{ height: "100vh" }}
     >
-      <form onSubmit={submitHandler} class="form">
-        <div class="flex-column">
+      <form onSubmit={submitHandler} className="form">
+        <div className="flex-column">
           <label>Email </label>
         </div>
-        <div class="inputForm">
+        <div className="inputForm">
           <FiAtSign style={{ fontSize: "1.25rem" }} />
-          <input type="text" class="input" placeholder="Enter your Email" />
+          <input type="text" className="input" placeholder="Enter your Email" />
         </div>
 
-        <div class="flex-column">
+        <div className="flex-column">
           <label>Password</label>
         </div>
-        <div class="inputForm">
+        <div className="inputForm">
           <IoLockClosedOutline style={{ fontSize: "1.25rem" }} />
           <input
             type={`${showPassword ? "text" : "password"}`}
-            class="input"
+            className="input"
             placeholder="Enter your Password"
           />
 
@@ -55,7 +55,7 @@ const RegisterPage = () => {
           )}
         </div>
 
-        <div class="flex-row">
+        <div className="flex-row">
           <div className="d-flex justify-content-center align-items-center">
             <input
               type="checkbox"
@@ -64,14 +64,14 @@ const RegisterPage = () => {
             />
             <label>Remember me </label>
           </div>
-          <span class="span">Forgot password?</span>
+          <span className="span">Forgot password?</span>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Sign In
         </button>
-        <p class="p">
+        <p className="p">
           Already have an account?
-          <Link to="/login" class="span">
+          <Link to="/login" className="span">
             Sign In
           </Link>
         </p>
