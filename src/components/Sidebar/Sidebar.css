@@ -4,7 +4,7 @@
   background-color: var(--background-color2);
   position: absolute;
   top: 0px;
-  left: 0;
+  left: 0px;
   box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825);
   display: flex;
   flex-direction: column;
@@ -13,17 +13,28 @@
   padding: 20px 0 20px 10px;
 }
 
+.navcontainer {
+  height: calc(100vh - 70px);
+  width: 250px;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.navclose {
+  width: 60px;
+}
 .navcontainer::-webkit-scrollbar {
-  width: 6px; 
+  width: 6px;
 }
 
 .navcontainer::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 .navcontainer::-webkit-scrollbar-thumb {
-  background: #88888844; 
-  border-radius: 10px; 
+  background: #88888844;
+  border-radius: 10px;
 }
 
 .navcontainer::-webkit-scrollbar-thumb:hover {

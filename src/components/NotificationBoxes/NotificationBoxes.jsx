@@ -38,17 +38,17 @@ const NotificationBoxes = ({ isPageDashboard }) => {
         <BoxOfNotification
           type={"newTask"}
           from={"Programming lesson"}
-          time={getFormattedDateTime("09.09.2024 14:30")}
+          time={getFormattedDateTime("09.09.2024 14:45")}
         />
         <BoxOfNotification
           type={"upcomingExam"}
           from={"Programming lesson"}
-          time={getFormattedDateTime("09.09.2024 14:30")}
+          time={getFormattedDateTime("09.09.2024 15:25")}
         />
         <BoxOfNotification
           type={"upcomingExam"}
           from={"Programming lesson"}
-          time={getFormattedDateTime("09.09.2024 14:30")}
+          time={getFormattedDateTime("09.09.2024 15:35")}
         />
       </div>
     </>

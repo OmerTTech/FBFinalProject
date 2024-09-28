@@ -183,19 +183,7 @@ header {
   flex-wrap: wrap;
   gap: 50px;
 }
-/* Nav CSS for Responsive / dont move to sidebar.css*/
-.navcontainer {
-  height: calc(100vh - 70px);
-  width: 250px;
-  position: relative;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  transition: all 0.5s ease-in-out;
-}
-.navclose {
-  width: 80px;
-}
-/* Nav CSS for Responsive / dont move to sidebar.css*/
+
 
 .box {
   height: 130px;
