@@ -5,6 +5,7 @@ import { FiMenu } from "react-icons/fi";
 import { IoMdNotifications } from "react-icons/io";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { NavContext } from "../../contexts/NavContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
@@ -38,7 +39,8 @@ const Header = () => {
       <Searchbar />
 
       <div className="message">
-        <div
+        <Link
+          to="/notifications/"
           style={{
             filter: "drop-shadow(0px 0px 1.25px var(--secondary-color))",
           }}
@@ -50,7 +52,7 @@ const Header = () => {
               color: "var(--secondary-color2)",
             }}
           />
-        </div>
+        </Link>
         <Profile_submenu />
       </div>
     </header>
