@@ -1,25 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "user@gmail.com",
-      "password": "user123",
-      "role": "student",
-      "token": "fake-token-1"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQifQ.067mG7WHRkeeSYK5m3gcF0leGjpvG5hW2yzTTugteVA"
     },
     {
-      "id": 2,
-      "email": "teacher@gmail.com",
-      "password": "teacher123",
-      "role": "teacher",
-      "token": "fake-token-2"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZWFjaGVyMTIzIiwicm9sZSI6InRlYWNoZXIifQ.DT7ze8B-q5OO2e89BQvEtjYPQnLXmlvwb_rYpBCjcYk"
     },
     {
-      "id": 3,
-      "email": "admin@gmail.com",
-      "password": "admin123",
-      "role": "admin",
-      "token": "fake-token-3"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4ifQ.HCsW5HFIoiZAaBkfo0Z-kuozSgP_qNUC8HpkREYRRKE"
     }
   ]
 }

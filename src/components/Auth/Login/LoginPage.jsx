@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { getLogin } from "../../../services/Api";
+import { jwtDecode } from "jwt-decode";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,8 +18,7 @@ const LoginPage = () => {
   });
   const [emailBorder, setEmailBorder] = useState("");
   const [passwordBorder, setPasswordBorder] = useState("");
-  const { setUserData, setToken, setTeacher, setAdmin } =
-    useContext(AuthContext);
+  const { setAccessToken } = useContext(AuthContext);
 
   const getShowPass = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -62,34 +62,22 @@ const LoginPage = () => {
 
     try {
       const response = await getLogin();
-      const user = response.data.find(
-        (user) => user.email === inputValues.email
-      );
+      const users = response.data.map((user) => {
+        const decoded = jwtDecode(user.accessToken);
+        return { ...decoded, accessToken: user.accessToken };
+      });
+      console.log(users)
+      const user = users.find((user) => user.email === inputValues.email);
 
       if (user) {
         if (user.password === inputValues.password) {
-          const fakeToken = user.token;
-          const fakeRole = user.role;
+          const token = user.accessToken;
           if (rememberMe) {
-            localStorage.setItem("token", fakeToken);
-            localStorage.setItem("userData", JSON.stringify(user));
+            localStorage.setItem("accessToken", token);
           } else {
-            sessionStorage.setItem("token", fakeToken);
-            sessionStorage.setItem("userData", JSON.stringify(user));
+            sessionStorage.setItem("accessToken", token);
           }
-          setToken(fakeToken);
-          setUserData(user);
-
-          if (fakeRole === "teacher") {
-            setTeacher(true);
-            setAdmin(false);
-          } else if (fakeRole === "admin") {
-            setAdmin(true);
-            setTeacher(false);
-          } else {
-            setTeacher(false);
-            setAdmin(false);
-          }
+          setAccessToken(token);
         } else {
           toast.error("Yanlış şifre");
           setPasswordBorder("red");
@@ -134,7 +122,7 @@ const LoginPage = () => {
             className="input"
             placeholder="Enter your Password"
             name="password"
-            defaultValue={inputValues.password}
+            value={inputValues.password}
             onChange={handleInputChange}
           />
 

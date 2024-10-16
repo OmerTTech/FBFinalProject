@@ -115,7 +115,7 @@ const Sidebar = () => {
             <h4 className="h4-nav">class Schedule</h4>
           </NavLink>
           {(admin || teacher) && (
-            <NavLink to="/exam/results" className="nav-option">
+            <NavLink to="/Announcement" className="nav-option">
               <TfiAnnouncement className="icon" />
               <h4 className="h4-nav">Announcement</h4>
             </NavLink>

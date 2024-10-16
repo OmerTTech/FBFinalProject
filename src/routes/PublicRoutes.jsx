@@ -12,13 +12,13 @@ import Assignments from "../pages/Assignments/Assignments";
 import Notifications from "../pages/Notifications/Notifications";
 
 const PublicRoutes = () => {
-  const { token, admin, loading } = useContext(AuthContext);
+  const { accessToken, admin, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
     if (!loading) {
-      if (!token) {
+      if (!accessToken) {
         if (
           location.pathname !== "/login" &&
           location.pathname !== "/register"
@@ -34,7 +34,7 @@ const PublicRoutes = () => {
         }
       }
     }
-  }, [token, navigate, location.pathname, loading]);
+  }, [accessToken, navigate, location.pathname, loading]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -42,13 +42,13 @@ const PublicRoutes = () => {
 
   return (
     <>
-      {!token && (
+      {!accessToken && (
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Routes>
       )}
-      {token && (
+      {accessToken && (
         <PublicLayout>
           <Routes>
             <Route path="/" element={<Dashboard />} />
@@ -60,7 +60,7 @@ const PublicRoutes = () => {
           </Routes>
         </PublicLayout>
       )}
-      {token && admin && (
+      {accessToken && admin && (
         <Routes>
           <Route path="/admin" />
         </Routes>
