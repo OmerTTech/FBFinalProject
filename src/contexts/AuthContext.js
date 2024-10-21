@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
       setTeacher(false);
     }
     setLoading(false);
-  }, [accessToken, userData, loggedIn]);
+  }, [accessToken]);
 
   const logoutHandler = () => {
     localStorage.removeItem("accessToken");

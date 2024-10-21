@@ -15,7 +15,7 @@ const Dashboard = () => {
 
       <Infoboxs />
 
-      <Link to="/notifications" style={{ cursor: "auto" }}>
+      <Link to="/notifications" title="View all Notification" style={{ cursor: "pointer" }}>
         <NotificationBoxes isPageDashboard={"true"} />
       </Link>
     </>

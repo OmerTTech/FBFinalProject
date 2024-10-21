@@ -41,7 +41,7 @@
 .course-card .course-name {
   position: absolute;
   bottom: 10px;
-  right: 20px;
+  right: 5vh;
   font-size: 18px;
   font-style: italic;
   text-transform: capitalize;

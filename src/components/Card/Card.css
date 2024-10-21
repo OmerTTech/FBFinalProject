@@ -1,4 +1,4 @@
-.cookieCard {
+.courseCard {
   height: auto;
   background: linear-gradient(to right, rgb(152, 120, 255), rgb(208, 195, 255));
   display: flex;
@@ -11,48 +11,48 @@
   overflow: hidden;
 }
 
-.cookieCard::before {
+.courseCard::before {
   width: 150px;
   height: 150px;
   content: "";
-  background: linear-gradient(to right, rgb(142, 110, 255), rgb(208, 195, 255));
+  background: linear-gradient(to right, rgb(178, 157, 255), rgb(208, 195, 255));
   position: absolute;
   z-index: 1;
   border-radius: 50%;
   right: -25%;
-  top: -25%;
+  top: -50%;
 }
 
-.cookieCard > * {
+.courseCard > * {
   margin-bottom: 5px;
 }
 
-.cookieHeading {
-  font-size: 1.5em;
+.courseHeading {
+  font-size: 1.5rem;
   font-weight: 600;
-  color: rgb(241, 241, 241);
+  color: var(--text-color-rev);
   z-index: 2;
 }
 
-.cookieDescription {
-  font-size: 0.9em;
-  color: rgb(241, 241, 241);
+.courseOwner {
+  font-size: 1.2rem;
+  color: var(--text-color-rev);
   z-index: 2;
 }
 
-.cookieDescription a {
-  color: rgb(241, 241, 241);
+.courseOwner a {
+  color: var(--text-color-rev);
 }
-.cookieCard button {
+.courseCard button {
   background-color: #7b57ff;
   padding: 11px 20px;
   transition-duration: 0.2s;
   border: none;
-  color: rgb(241, 241, 241);
+  color: var(--text-color-rev);
   cursor: pointer;
   font-weight: 600;
   z-index: 2;
 }
-.cookieCard button:hover {
+.courseCard button:hover {
   transition-duration: all 0.2s ease;
 }

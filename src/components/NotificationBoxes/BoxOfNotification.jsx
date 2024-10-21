@@ -28,7 +28,7 @@ const BoxOfNotification = ({ type, from, time }) => {
           </p>
         </div>
         {time && (
-          <p className="card-text text-muted">
+          <p className="card-text text-muted text-end">
             <small>{time}</small>
           </p>
         )}

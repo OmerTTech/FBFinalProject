@@ -16,13 +16,14 @@
 .navcontainer {
   height: calc(100vh - 70px);
   width: 250px;
+  left: 0;
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
   transition: all 0.5s ease-in-out;
 }
 .navclose {
-  width: 60px;
+  width: 60px !important;
 }
 .navcontainer::-webkit-scrollbar {
   width: 6px;
@@ -71,6 +72,37 @@
   margin: inherit;
   font-weight: inherit;
   line-height: inherit;
+}
+
+@media screen and (max-width:900px) {
+  .navcontainer {
+    width: 225px;
+  }
+  .sidebar {
+    padding: 20px 0 20px 5px;
+  }
+  .sidebar .h4-nav {
+    font-size: 0.85rem;
+  }
+  .nav-option{
+    gap: 12.5px;
+  }
+  
+}
+@media screen and (max-width:600px) {
+  .navcontainer {
+    width: 220px;
+  }
+  .sidebar {
+    padding: 20px 0 20px 0px;
+  }
+  .sidebar .h4-nav {
+    font-size: 0.65rem;
+  }
+  .nav-option{
+    gap: 2.5px;
+  }
+  
 }
 
 .nav-upper-options {
