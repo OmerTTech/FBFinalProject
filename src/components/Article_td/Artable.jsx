@@ -22,7 +22,7 @@ const Artable = ({ title, tableHead, pageUrl }) => {
         )}
 
         <div className="items">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <Article_td key={i} />
           ))}
         </div>

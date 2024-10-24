@@ -1,19 +1,24 @@
-import axios from 'axios';
+import axios from "axios";
 
-const API_URL = 'http://localhost:5000';
+const API_URL = "http://localhost:5000";
 
 export const api = axios.create({
   baseURL: API_URL,
 });
 
-export const getLogin = () => api.get('/users');
-
-export const allData = () =>  api.get('/api/users/');
-export const getUsers = (page) => api.get(`/api/users?page=${page}`);
-export const createUser = (user) => api.post('/api/users', user);
-export const updateUser = (id, user) => api.put(`/api/users/${id}`, user);
-export const deleteUser = (id) => api.delete(`/api/users/${id}`);
-export const loginUser = (user) => api.post(`/api/login`, user);
-export const registerUser = (user) => api.post(`/api/register`, user);
-export const getLoginUser = (id) => api.get(`/api/login${id}`);
-export const singleUser = (id) => api.get(`/api/users/${id}`);
+export const API = {
+  auth: {
+    allData: () => api.get("/api/users/"),
+    getUsers: (page) => api.get(`/api/users?page=${page}`),
+    createUser: (user) => api.post("/api/users", user),
+    updateUser: (id, user) => api.put(`/api/users/${id}`, user),
+    deleteUser: (id) => api.delete(`/api/users/${id}`),
+    getLogin: () => api.get("/users"),
+    registerUser: (user) => api.post(`/api/register`, user),
+  },
+  course: {
+    courses: () => api.get("/courses"),
+    createCourse: (course) => api.post(`/courses`, course),
+    enrollCourse: (course) => api.post(`/enrollments`, course),
+  },
+};

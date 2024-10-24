@@ -23,7 +23,7 @@
   transition: all 0.5s ease-in-out;
 }
 .navclose {
-  width: 60px !important;
+  width: 60px;
 }
 .navcontainer::-webkit-scrollbar {
   width: 6px;
@@ -94,15 +94,17 @@
     width: 220px;
   }
   .sidebar {
-    padding: 20px 0 20px 0px;
+    padding: 20px 0px 20px 0px;
   }
   .sidebar .h4-nav {
     font-size: 0.65rem;
   }
   .nav-option{
-    gap: 2.5px;
+    gap: 7.5px;
   }
-  
+  .navclose{
+    width: 55px;
+  }
 }
 
 .nav-upper-options {

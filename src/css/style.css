@@ -29,6 +29,7 @@
   --text-color: #000;
   --text-color-rev: #fff;
   --text-color-gray: #bbb;
+  --text-color-gray-rev: #555;
   --icon: #000249;
 }
 
@@ -73,11 +74,7 @@ header {
   align-items: center;
 }
 
-.logo {
-  font-size: 27px;
-  font-weight: 600;
-  color: rgb(47, 141, 70);
-}
+
 
 .icn {
   height: 30px;
@@ -87,20 +84,16 @@ header {
 }
 
 .searchbar,
-.message,
-.logosec {
+.message {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 .searchbar2 {
   display: none;
 }
 
-.logosec {
-  gap: 60px;
-}
 
 .searchbar input {
   width: 250px;

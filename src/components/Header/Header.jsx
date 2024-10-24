@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import "./Header.css"
 import Profile_submenu from "../Profile_submenu/Profile_submenu";
 import Searchbar from "../Searchbar/Searchbar";
 import { FiMenu } from "react-icons/fi";
@@ -6,6 +7,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { NavContext } from "../../contexts/NavContext";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/Logo.png";
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
@@ -21,7 +23,9 @@ const Header = () => {
       }}
     >
       <div className="logosec">
-        <div className="logo">FinalProject</div>
+        <Link to="/" className="logo">
+          <img src={Logo} alt="" />
+        </Link>
         <FiMenu
           className="icn menuicn"
           style={{

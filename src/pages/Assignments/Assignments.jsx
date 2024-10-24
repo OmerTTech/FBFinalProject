@@ -29,13 +29,6 @@ const Assignments = () => {
       status: "Pending",
     },
     {
-      unit: "01",
-      subject: "Networking",
-      issuesData: "02/05/2022",
-      deadline: "03/11/2023",
-      status: "Pending",
-    },
-    {
       unit: "02",
       subject: "Security",
       issuesData: "02/08/2022",
@@ -65,7 +58,7 @@ const Assignments = () => {
             ))}
           </tbody>
         </table>
-        <TablePagination page={"assignments"}/>
+        <TablePagination page={"assignments"} />
       </div>
     </>
   );

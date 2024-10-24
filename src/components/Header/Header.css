@@ -1,0 +1,16 @@
+.logosec {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 30px;
+}
+.logo {
+    width: 25%;
+  font-size: 27px;
+  font-weight: 600;
+  color: rgb(47, 141, 70);
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+}

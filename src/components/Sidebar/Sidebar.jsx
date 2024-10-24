@@ -41,7 +41,15 @@ const Sidebar = () => {
           </NavLink>
           {/* ONLY STUDENTS: */}
           {!teacher && (
-            <NavLink end to="/courses/register" className="nav-option">
+            <NavLink
+              end
+              to="/courses/register/1"
+              className={
+                window.location.pathname.match(/^\/courses\/(register\/\d+)$/)
+                  ? "nav-option active"
+                  : "nav-option"
+              }
+            >
               <MdOutlineLibraryBooks className="icon" />
               <h4 className="h4-nav">All Courses </h4>
             </NavLink>

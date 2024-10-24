@@ -1,13 +1,57 @@
 {
   "users": [
     {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQifQ.067mG7WHRkeeSYK5m3gcF0leGjpvG5hW2yzTTugteVA"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIn0.spshg98WuTu7tI7CoRgic8yOjmQbZNpDFAKwxw-5caQ"
     },
     {
       "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJlbWFpbCI6InRlYWNoZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZWFjaGVyMTIzIiwicm9sZSI6InRlYWNoZXIifQ.DT7ze8B-q5OO2e89BQvEtjYPQnLXmlvwb_rYpBCjcYk"
     },
     {
       "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4ifQ.HCsW5HFIoiZAaBkfo0Z-kuozSgP_qNUC8HpkREYRRKE"
+    }
+  ],
+  "courses": [
+    {
+      "courseId": 1,
+      "courseName": "React Development",
+      "semester": "FIRST_SEMESTER",
+      "instructorName": "John Doe",
+      "instructorEmail": "teacher@example.com"
+    },
+    {
+      "courseId": 2,
+      "courseName": "Java Backend",
+      "semester": "FIRST_SEMESTER",
+      "instructorName": "Smith Joe",
+      "instructorEmail": "teacher2@example.com"
+    },
+    {
+      "courseId": 3,
+      "courseName": "AI Machine learning",
+      "semester": "SECOND_SEMESTER",
+      "instructorName": "Mr.Harry",
+      "instructorEmail": "instructor3@example.com"
+    },
+    {
+      "courseId": 4,
+      "courseName": "Python Programming",
+      "semester": "SECOND_SEMESTER",
+      "instructorName": "Thomas Anderson",
+      "instructorEmail": "instructor4@example.com"
+    },
+    {
+      "courseId": 5,
+      "courseName": "Android app development",
+      "semester": "FIRST_SEMESTER",
+      "instructorName": "Marry jean",
+      "instructorEmail": "instructor5@example.com"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentEmail": "student@example.com",
+      "courseIds": [1, 2]
     }
   ]
 }

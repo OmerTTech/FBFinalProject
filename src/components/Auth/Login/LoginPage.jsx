@@ -6,7 +6,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import toast from "react-hot-toast";
-import { getLogin } from "../../../services/Api";
+import { API } from "../../../services/Api";
 import { jwtDecode } from "jwt-decode";
 
 const LoginPage = () => {
@@ -61,7 +61,7 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await getLogin();
+      const response = await API.auth.getLogin();
       const users = response.data.map((user) => {
         const decoded = jwtDecode(user.accessToken);
         return { ...decoded, accessToken: user.accessToken };
