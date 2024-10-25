@@ -1,6 +1,6 @@
 import React from "react";
 
-const TDAssignment = ({ data }) => {
+const TableTD = ({ data }) => {
   const statusClasses = {
     Submitted: "status-submitted",
     Pending: "status-pending",
@@ -8,21 +8,13 @@ const TDAssignment = ({ data }) => {
   };
   return (
     <tr>
-      <td>
-        <input
-          className={statusClasses[data.status]}
-          style={{width:"15px",height:"15px"}}
-          type="checkbox"
-          defaultChecked
-        />
-      </td>
+      <td>{data.id}</td>
       <td>{data.unit}</td>
       <td>{data.subject}</td>
       <td>{data.issuesData}</td>
-      <td>{data.deadline}</td>
       <td className={statusClasses[data.status]}>{data.status}</td>
     </tr>
   );
 };
 
-export default TDAssignment;
+export default TableTD;

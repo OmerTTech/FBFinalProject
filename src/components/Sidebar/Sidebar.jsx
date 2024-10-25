@@ -43,7 +43,7 @@ const Sidebar = () => {
           {!teacher && (
             <NavLink
               end
-              to="/courses/register/1"
+              to="/courses/register"
               className={
                 window.location.pathname.match(/^\/courses\/(register\/\d+)$/)
                   ? "nav-option active"
@@ -57,7 +57,7 @@ const Sidebar = () => {
           {/* ONLY STUDENTS. */}
           <NavLink
             end
-            to="/courses/1"
+            to="/courses"
             className={
               window.location.pathname.match(/^\/courses\/\d+$/)
                 ? "nav-option active"
@@ -77,7 +77,7 @@ const Sidebar = () => {
           {(!admin || !teacher) && (
             <NavLink
               end
-              to="/assignments/1"
+              to="/assignments"
               className={
                 window.location.pathname.match(/^\/assignments\/\d+$/)
                   ? "nav-option active"

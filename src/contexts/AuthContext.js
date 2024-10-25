@@ -1,5 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 import React, { createContext, useEffect, useState } from "react";
+import { API } from "../services/Api";
 
 const AuthContext = createContext();
 
@@ -42,6 +43,8 @@ const AuthProvider = ({ children }) => {
     sessionStorage.removeItem("userData");
     setAccessToken(null);
   };
+
+  
   return (
     <AuthContext.Provider
       value={{

@@ -61,39 +61,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-header {
-  height: 70px;
-  width: 100vw;
-  padding: 0 30px;
-  background-color: var(--background-color1);
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-
-.icn {
-  height: 30px;
-}
-.menuicn {
-  cursor: pointer;
-}
-
-.searchbar,
-.message {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
 .searchbar2 {
   display: none;
 }
-
 
 .searchbar input {
   width: 250px;
@@ -116,19 +86,11 @@ header {
   cursor: pointer;
 }
 
+.searchbar,
 .message {
-  gap: 40px;
-  position: relative;
-  cursor: pointer;
-}
-.circle {
-  height: 7px;
-  width: 7px;
-  position: absolute;
-  background-color: #fa7bb4;
-  border-radius: 50%;
-  left: 19px;
-  top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 .dp {
   height: 40px;
@@ -176,7 +138,6 @@ header {
   flex-wrap: wrap;
   gap: 50px;
 }
-
 
 .box {
   height: 130px;

@@ -52,9 +52,9 @@ const PublicRoutes = () => {
         <PublicLayout>
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/courses/register/:id" element={<AllCourses />} />
-            <Route path="/courses/:id" element={<MyCourses />} />
-            <Route path="/assignments/:id" element={<Assignments />} />
+            <Route path="/courses/register/" element={<AllCourses />} />
+            <Route path="/courses/" element={<MyCourses />} />
+            <Route path="/assignments/" element={<Assignments />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

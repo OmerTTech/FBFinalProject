@@ -9,7 +9,6 @@ const CoursesProvider = ({ children }) => {
     try {
       const {data} = await API.course.courses();
       setAllCourses(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }

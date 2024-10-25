@@ -1,9 +1,8 @@
 import React from "react";
 import Article_td from "./Article_td";
 import "./Artable.css";
-import TablePagination from "../TablePagination/TablePagination";
 
-const Artable = ({ title, tableHead, pageUrl }) => {
+const Artable = ({ title, tableHead }) => {
   return (
     <div className="report-container my-4">
       {title && (
@@ -12,7 +11,7 @@ const Artable = ({ title, tableHead, pageUrl }) => {
         </div>
       )}
 
-      <div className={`report-body px-3 pt-3 ${!pageUrl && "mb-3"}`}>
+      <div className={`report-body px-3 pt-3`}>
         {tableHead && (
           <div className="report-topic-heading">
             {tableHead.map((item) => (
@@ -26,9 +25,6 @@ const Artable = ({ title, tableHead, pageUrl }) => {
             <Article_td key={i} />
           ))}
         </div>
-        {pageUrl && 
-        <TablePagination page={pageUrl}/>
-        }
       </div>
     </div>
   );

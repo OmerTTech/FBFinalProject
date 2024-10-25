@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import "./Header.css"
+import "../../css/responsive.css"
 import Profile_submenu from "../Profile_submenu/Profile_submenu";
 import Searchbar from "../Searchbar/Searchbar";
 import { FiMenu } from "react-icons/fi";
@@ -23,7 +24,7 @@ const Header = () => {
       }}
     >
       <div className="logosec">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo py-1">
           <img src={Logo} alt="" />
         </Link>
         <FiMenu
