@@ -10,7 +10,7 @@ const Corsbox = ({title="",text="",length=0}) => {
   } else if (length == 2) {
     classNamesForBoxNums = "col-sm-12 col-md-6 col-lg-6"
   } else {
-    classNamesForBoxNums = "col-sm-12 col-md-6 col-lg-12"
+    classNamesForBoxNums = "col-sm-12 col-md-6 col-lg-6 mx-auto"
   }
   return (
     <div className={classNamesForBoxNums}>

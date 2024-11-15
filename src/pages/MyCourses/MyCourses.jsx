@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Coursesboxs from "../../components/Infoboxs/Coursesboxs";
 import Semestr from "../../components/Semestr/Semestr";
 import Table from "../../components/Tables/Table";
 import { CourseContext } from "../../contexts/CoursesContexs";
 import { AuthContext } from "../../contexts/AuthContext";
+import { API } from "../../services/Api";
 
 const MyCourses = () => {
   const headers = [
@@ -13,22 +14,51 @@ const MyCourses = () => {
     "instructor Name",
     "instructor Email",
   ];
-  const {allCourses} = useContext(CourseContext)
-  const {userData} = useContext(AuthContext)
-  let coursesBySemester = null
-  if (userData.semester === "FIRST_SEMESTER") {
-    coursesBySemester = allCourses.filter((courses)=> courses.semester === "First")
-  } else if (userData.semester === "SECOND_SEMESTER") {
-    coursesBySemester = allCourses.filter((courses)=> courses.semester === "Second")
-  }
-  
+  const { allCourses } = useContext(CourseContext);
+  const { userData } = useContext(AuthContext);
+  const [myCourses, setMyCourses] = useState([]);
+
+  const semesterLabel =
+    userData.semester === "FIRST_SEMESTER"
+      ? "First"
+      : userData.semester === "SECOND_SEMESTER"
+      ? "Second"
+      : null;
+
+  useEffect(() => {
+    const fetchEnrollments = async () => {
+      try {
+        const response = await API.course.courseEnrollments();
+
+        const enrollments = response.data?.find(
+          (enrollment) => enrollment.studentEmail === userData.email
+        );
+
+        if (enrollments) {
+          const ids = enrollments.ids.slice(0, 4);
+          const filteredCourses = allCourses.filter(
+            (course) =>
+              course.semester === semesterLabel &&
+              ids.includes(course.id)
+          );
+
+          setMyCourses(filteredCourses);
+        }
+      } catch (error) {
+        console.error("Error fetching enrollments:", error);
+      }
+    };
+
+    fetchEnrollments();
+  }, [allCourses, userData.email, semesterLabel]);
+
   return (
     <div>
-      <Coursesboxs Courses={coursesBySemester}/>
+      <Coursesboxs Courses={myCourses} />
 
       <Semestr />
 
-      <Table Headers={headers} Datas={coursesBySemester}/>
+      <Table Headers={headers} Datas={myCourses} />
     </div>
   );
 };

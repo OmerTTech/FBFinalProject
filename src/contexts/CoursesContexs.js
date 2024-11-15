@@ -7,16 +7,15 @@ const CoursesProvider = ({ children }) => {
   const [allCourses, setAllCourses] = useState([]);
   const getAllCourses = async () => {
     try {
-      const {data} = await API.course.courses();
+      const { data } = await API.course.courses();
       setAllCourses(data);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    getAllCourses();  
+    getAllCourses();
   }, []);
-  
 
   return (
     <CourseContext.Provider value={{ allCourses, setAllCourses }}>

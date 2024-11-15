@@ -10,6 +10,15 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile_submenu = () => {
   const { logoutHandler, userData } = useContext(AuthContext);
+  const fullname = `${userData.name ? userData.name : ""} ${
+    userData.surname ? userData.surname : ""
+  }`;
+  const getFullName =
+    userData && fullname.length >= 0
+      ? fullname
+      : userData.email
+      ? userData.email
+      : "Empty..";
   return (
     <>
       <label className="popup">
@@ -23,16 +32,27 @@ const Profile_submenu = () => {
         </div>
         <nav className="popup-window">
           <ul>
-            <Link to="/profile">
-              <li className="text-center" style={{fontSize:`${userData.email && userData.email.length >= 28 ? "0.6rem" : "0.75rem"}`}}>
-                <button className="submenubtn">
-                <FaRegUser
-                  style={{ fontSize: "13.5px", marginLeft: "1.75px" }}
-                />
-                  <span>{userData.email && userData.email.length >= 28 ? userData.email.slice(0,28) + ".." : userData.email}</span>
+            <span to="/profile">
+              <li
+                className="text-center"
+                style={{
+                  fontSize: `${
+                    getFullName && getFullName.length >= 28 ? "0.6rem" : "0.75rem"
+                  }`,
+                }}
+              >
+                <button className="submenubtn" style={{ cursor: "default" }}>
+                  <FaRegUser
+                    style={{ fontSize: "13.5px", marginLeft: "1.75px" }}
+                  />
+                  <span>
+                    {getFullName && getFullName.length >= 28
+                      ? getFullName.slice(0, 28) + ".."
+                      : getFullName}
+                  </span>
                 </button>
               </li>
-            </Link>
+            </span>
             {/* <legend>Actions</legend> */}
             <hr />
             <Link to="/settings">
@@ -48,7 +68,11 @@ const Profile_submenu = () => {
             </Link>
             <li>
               <button className="submenubtn">
-                <label htmlFor="ThemeSwitch" className="dark-mode-switch">
+                <label
+                  htmlFor="ThemeSwitch"
+                  className="dark-mode-switch"
+                  style={{ cursor: "pointer" }}
+                >
                   <MdOutlineDarkMode
                     className="submenu_icon"
                     color="#999"

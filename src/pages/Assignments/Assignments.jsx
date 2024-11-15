@@ -10,7 +10,7 @@ const Assignments = () => {
       <div className="Assignment table-container mx-auto">
         {fakeData.length <= 0 && (
           <p className="alert alert-danger m-0 text-center w-100">
-            No Data Found...
+            No Assignment Found...
           </p>
         )}
       </div>

@@ -10,9 +10,10 @@ import MyCourses from "../pages/MyCourses/MyCourses";
 import NotFound from "../components/NotFound/NotFound";
 import Assignments from "../pages/Assignments/Assignments";
 import Notifications from "../pages/Notifications/Notifications";
+import TeacherCourses from "../pages/MyCourses/TeacherCourses";
 
 const PublicRoutes = () => {
-  const { accessToken, admin, loading } = useContext(AuthContext);
+  const { accessToken, teacher, admin, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -53,7 +54,7 @@ const PublicRoutes = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/courses/register/" element={<AllCourses />} />
-            <Route path="/courses/" element={<MyCourses />} />
+            <Route path="/courses/" element={teacher ? <TeacherCourses/> : <MyCourses />} />
             <Route path="/assignments/" element={<Assignments />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />

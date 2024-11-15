@@ -16,15 +16,15 @@ const Infoboxs = () => {
     const users = response.data.map((user) => {
       return jwtDecode(user.accessToken);
     });
-    console.log(users);
-
     setAllUsers(users);
   };
   useEffect(() => {
-    getAllUsers()
+    getAllUsers();
   }, []);
-  const studentCount = allUsers.filter((user) => user.role === "student").length || 0
-  const teacherCount = allUsers.filter((user) => user.role === "teacher").length || 0
+  const studentCount =
+    allUsers.filter((user) => user.role === "student").length || 0;
+  const teacherCount =
+    allUsers.filter((user) => user.role === "teacher").length || 0;
 
   return (
     <div className="container mb-4">

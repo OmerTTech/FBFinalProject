@@ -9,7 +9,6 @@ export const api = axios.create({
 export const API = {
   auth: {
     allData: () => api.get("/api/users/"),
-    getUsers: (page) => api.get(`/api/users?page=${page}`),
     createUser: (user) => api.post("/api/users", user),
     updateUser: (id, user) => api.put(`/api/users/${id}`, user),
     deleteUser: (id) => api.delete(`/api/users/${id}`),
@@ -20,5 +19,6 @@ export const API = {
     courses: () => api.get("/courses"),
     createCourse: (course) => api.post(`/courses`, course),
     enrollCourse: (course) => api.post(`/enrollments`, course),
+    courseEnrollments: () => api.get("/enrollments"),
   },
 };

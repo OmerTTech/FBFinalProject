@@ -1,10 +1,10 @@
 import React from "react";
-import "./Tables.css"
+import "./Tables.css";
 
-const Table = ({ Headers, Datas }) => {
-  return (
-    <div className="table-container mx-auto">
-      {Datas.length >= 1 && (
+const Table = ({ Headers, Datas, Container = true }) => {
+  const tableContent = (
+    <>
+      {Datas.length >= 1 ? (
         <table>
           <thead>
             <tr>
@@ -14,20 +14,27 @@ const Table = ({ Headers, Datas }) => {
             </tr>
           </thead>
           <tbody>
-          {Datas?.map((item, index) => (
+            {Datas?.map((item, index) => (
               <tr key={index}>
-                {Object.values(item).map((data,i)=><td key={i}>{data}</td>)}
+                {Object.values(item).map((data, i) => (
+                  <td key={i}>{data}</td>
+                ))}
               </tr>
             ))}
           </tbody>
         </table>
-      )}
-      {Datas.length <= 0 && (
+      ) : (
         <p className="alert alert-danger m-0 text-center w-100">
           No Course Found..
         </p>
       )}
-    </div>
+    </>
+  );
+
+  return Container ? (
+    <div className="table-container mx-auto">{tableContent}</div>
+  ) : (
+    tableContent
   );
 };
 
