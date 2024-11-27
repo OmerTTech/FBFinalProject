@@ -33,16 +33,18 @@ const MyCourses = () => {
         const enrollments = response.data?.find(
           (enrollment) => enrollment.studentEmail === userData.email
         );
-
+        
         if (enrollments) {
           const ids = enrollments.ids.slice(0, 4);
-          const filteredCourses = allCourses.filter(
-            (course) =>
-              course.semester === semesterLabel &&
-              ids.includes(course.id)
-          );
-
+          const filteredCourses = allCourses.filter((course) => {
+            return course.semester === semesterLabel && ids.includes(Number(course.id));
+          });
+          
           setMyCourses(filteredCourses);
+          console.log(allCourses);
+          
+          
+          
         }
       } catch (error) {
         console.error("Error fetching enrollments:", error);
