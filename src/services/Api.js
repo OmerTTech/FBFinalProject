@@ -8,17 +8,17 @@ export const api = axios.create({
 
 export const API = {
   auth: {
-    allData: () => api.get("/api/users/"),
-    createUser: (user) => api.post("/api/users", user),
-    updateUser: (id, user) => api.put(`/api/users/${id}`, user),
-    deleteUser: (id) => api.delete(`/api/users/${id}`),
+    allData: () => api.get("/users"),
+    createUser: (user) => api.post("/users", user),
+    updateUser: (id, user) => api.patch(`/users/${id}`, user),
+    deleteUser: (id) => api.delete(`/users/${id}`),
     getLogin: () => api.get("/users"),
-    registerUser: (user) => api.post(`/api/register`, user),
+    registerUser: (user) => api.post(`/register`, user),
   },
   course: {
     courses: () => api.get("/courses"),
     createCourse: (course) => api.post(`/courses`, course),
     enrollCourse: (course) => api.post(`/enrollments`, course),
     courseEnrollments: () => api.get("/enrollments"),
-  },
+    },
 };

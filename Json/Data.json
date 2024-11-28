@@ -1,68 +1,96 @@
 {
   "users": [
     {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiYWRtaW4iLCJzdXJuYW1lIjoibnVsbCIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiJhZG1pbjEyMyIsInJvbGUiOiJhZG1pbiJ9.2r3ygKo3Z7YPG9nQ7LZmfKR1Jn_CMgCvw_9jGkTk5oA"
+      "id": "1",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6Im51bGwiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4ifQ.ddcDhM2w76OFLzE7R8nXmj0auMt6NrujJnS16ZbuGO4"
     },
     {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiT21lciIsInN1cm5hbWUiOiJUYXBkaXFvdiIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJwYXNzd29yZCI6InVzZXIxMjMiLCJyb2xlIjoic3R1ZGVudCIsInNlbWVzdGVyIjoiRklSU1RfU0VNRVNURVIifQ.wqJqWifCjtsZJIXb2PPmCB1yTqCucPJIWXGiWIRwqdE"
+      "id": "2",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIiwiZW5yb2xscyI6WzEsNCw1LDEzXX0.TmfX-XfyjXBkhs00KvTBUBT8M13IgjfD2QiikHof_fw"
     },
     {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoiTmF6cmluIiwic3VybmFtZSI6bnVsbCwiZW1haWwiOiJ1c2VyMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6InVzZXIxMjMiLCJyb2xlIjoic3R1ZGVudCIsInNlbWVzdGVyIjoiU0VDT05EX1NFTUVTVEVSIn0.xHeOYPTMmhwZsXBckQ8jmaMKxF-7GTgdSNBjMtAs320"
+      "id": "3",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik5henJpbiIsInN1cm5hbWUiOm51bGwsImVtYWlsIjoidXNlcjJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IlNFQ09ORF9TRU1FU1RFUiIsImVucm9sbHMiOlsyLDNdfQ.CERWIYVjMXRbmBaDSTiaUQ3PFyyzkCQ9Y953oDCkjOY"
     },
     {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJuYW1lIjoiSm9obiIsInN1cm5hbWUiOiIgRG9lIiwiZW1haWwiOiJ0ZWFjaGVyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoidGVhY2hlcjEyMyIsInJvbGUiOiJ0ZWFjaGVyIn0.MLob3TxsGtQQ9DQPIHAIbbyY2uJGHrWiJDM6umvoz70"
+      "id": "4",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkpvaG4iLCJzdXJuYW1lIjoiIERvZSIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRlYWNoZXIxMjMiLCJyb2xlIjoidGVhY2hlciJ9.636K6vVGvk80Qpzjpmq1jpZzlz8yJx5yb7mMUTAl_Mo"
     },
     {
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUiLCJuYW1lIjoiSGFycnkiLCJzdXJuYW1lIjoiIEFuZGVyc29uIiwiZW1haWwiOiJ0ZWFjaGVyMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRlYWNoZXIxMjMiLCJyb2xlIjoidGVhY2hlciJ9.TMXTIryd_SC42hieBcBQUSZa_yShZEA3K0MuZGK3ZE0"
+      "id": "5",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6IkhhcnJ5Iiwic3VybmFtZSI6IiBBbmRlcnNvbiIsImVtYWlsIjoidGVhY2hlcjJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZWFjaGVyMTIzIiwicm9sZSI6InRlYWNoZXIifQ.3QCvG0Vxs5-OKerEHlchDVKpeZL-H99cutwrzq8TCgg"
     }
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "courseName": "React Development",
       "semester": "First",
       "instructorName": "Jarvis Pervine",
       "instructorEmail": "teacher@gmail.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "courseName": "Java Backend",
       "semester": "Second",
       "instructorName": "Harry Anderson",
       "instructorEmail": "teacher2@gmail.com"
     },
     {
-      "id": 3,
+      "id": "3",
       "courseName": "AI Machine learning",
       "semester": "Second",
       "instructorName": "Smith Carlson",
       "instructorEmail": "instructor3@gmail.com"
     },
     {
-      "id": 4,
+      "id": "4",
       "courseName": "Python Programming",
       "semester": "First",
       "instructorName": "Thomas Martin",
       "instructorEmail": "instructor4@gmail.com"
     },
     {
-      "id": 5,
+      "id": "5",
       "courseName": "Android app development",
       "semester": "First",
       "instructorName": "Larry Lomay",
       "instructorEmail": "instructor5@gmail.com"
-    }
-  ],
-  "enrollments": [
-    {
-      "id": 1,
-      "studentEmail": "user@gmail.com",
-      "ids": [1, 4]
     },
     {
-      "id": 2,
-      "studentEmail": "user2@gmail.com",
-      "ids": [2, 3]
+      "id": "6",
+      "courseName": "Android app development",
+      "semester": "First",
+      "instructorName": "Larry Lomay",
+      "instructorEmail": "instructor5@gmail.com"
+    },
+    {
+      "id": "7",
+      "courseName": "Android app development",
+      "semester": "First",
+      "instructorName": "Larry Lomay",
+      "instructorEmail": "instructor5@gmail.com"
+    },
+    {
+      "id": "8",
+      "courseName": "Android app development",
+      "semester": "First",
+      "instructorName": "Larry Lomay",
+      "instructorEmail": "instructor5@gmail.com"
+    },
+    {
+      "id": "9",
+      "courseName": "Android app development",
+      "semester": "First",
+      "instructorName": "Larry Lomay",
+      "instructorEmail": "instructor5@gmail.com"
+    },
+    {
+      "id": "13",
+      "courseName": "Android app development",
+      "semester": "First",
+      "instructorName": "Larry Lomay",
+      "instructorEmail": "instructor5@gmail.com"
     }
   ]
 }

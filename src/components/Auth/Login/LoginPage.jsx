@@ -66,7 +66,6 @@ const LoginPage = () => {
         const decoded = jwtDecode(user.accessToken);
         return { ...decoded, accessToken: user.accessToken };
       });
-      console.log(users)
       const user = users.find((user) => user.email === inputValues.email);
 
       if (user) {

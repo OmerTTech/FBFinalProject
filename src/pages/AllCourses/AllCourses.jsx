@@ -28,6 +28,7 @@ const Courses = () => {
 
     filterCoursesBySemester();
   }, [allCourses, userData.semester]);
+  
 
   return (
     <div>

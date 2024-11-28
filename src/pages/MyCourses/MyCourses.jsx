@@ -18,33 +18,23 @@ const MyCourses = () => {
   const { userData } = useContext(AuthContext);
   const [myCourses, setMyCourses] = useState([]);
 
-  const semesterLabel =
-    userData.semester === "FIRST_SEMESTER"
-      ? "First"
-      : userData.semester === "SECOND_SEMESTER"
-      ? "Second"
-      : null;
-
   useEffect(() => {
     const fetchEnrollments = async () => {
       try {
-        const response = await API.course.courseEnrollments();
+        // const response = await API.course.courseEnrollments();
 
-        const enrollments = response.data?.find(
-          (enrollment) => enrollment.studentEmail === userData.email
-        );
-        
-        if (enrollments) {
-          const ids = enrollments.ids.slice(0, 4);
+        // const enrollments = response.data?.find(
+        //   (enrollment) => enrollment.studentEmail === userData.email
+        // );
+
+        if (userData) {
+          const enrolls = userData.enrolls.slice(0, 4);
+
           const filteredCourses = allCourses.filter((course) => {
-            return course.semester === semesterLabel && ids.includes(Number(course.id));
+            return enrolls.includes(Number(course.id));
           });
-          
+
           setMyCourses(filteredCourses);
-          console.log(allCourses);
-          
-          
-          
         }
       } catch (error) {
         console.error("Error fetching enrollments:", error);
@@ -52,7 +42,7 @@ const MyCourses = () => {
     };
 
     fetchEnrollments();
-  }, [allCourses, userData.email, semesterLabel]);
+  }, [allCourses, userData.email]);
 
   return (
     <div>
