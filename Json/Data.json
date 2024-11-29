@@ -6,7 +6,7 @@
     },
     {
       "id": "2",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIiwiZW5yb2xscyI6WzEsNCw1LDEzXX0.TmfX-XfyjXBkhs00KvTBUBT8M13IgjfD2QiikHof_fw"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIiwiZW5yb2xscyI6WzEsNCw1LDZdfQ.yDapwIgmEt9NHY_NVU4FzZkmMIuAAOpopRvtpae3FBM"
     },
     {
       "id": "3",
@@ -41,56 +41,35 @@
       "courseName": "AI Machine learning",
       "semester": "Second",
       "instructorName": "Smith Carlson",
-      "instructorEmail": "instructor3@gmail.com"
-    },
-    {
-      "id": "4",
-      "courseName": "Python Programming",
-      "semester": "First",
-      "instructorName": "Thomas Martin",
-      "instructorEmail": "instructor4@gmail.com"
+      "instructorEmail": "teacher@gmail.com"
     },
     {
       "id": "5",
-      "courseName": "Android app development",
+      "courseName": "Android apps development",
       "semester": "First",
       "instructorName": "Larry Lomay",
-      "instructorEmail": "instructor5@gmail.com"
-    },
-    {
-      "id": "6",
-      "courseName": "Android app development",
-      "semester": "First",
-      "instructorName": "Larry Lomay",
-      "instructorEmail": "instructor5@gmail.com"
+      "instructorEmail": "teacher@gmail.com"
     },
     {
       "id": "7",
-      "courseName": "Android app development",
-      "semester": "First",
-      "instructorName": "Larry Lomay",
-      "instructorEmail": "instructor5@gmail.com"
+      "courseName": "Product management",
+      "semester": "Second",
+      "instructorName": "John",
+      "instructorEmail": "teacher@gmail.com"
     },
     {
       "id": "8",
-      "courseName": "Android app development",
-      "semester": "First",
-      "instructorName": "Larry Lomay",
-      "instructorEmail": "instructor5@gmail.com"
+      "courseName": "TEST 2",
+      "semester": "Second",
+      "instructorName": "John",
+      "instructorEmail": "teacher@gmail.com"
     },
     {
       "id": "9",
-      "courseName": "Android app development",
+      "courseName": "TEST 1",
       "semester": "First",
-      "instructorName": "Larry Lomay",
-      "instructorEmail": "instructor5@gmail.com"
-    },
-    {
-      "id": "13",
-      "courseName": "Android app development",
-      "semester": "First",
-      "instructorName": "Larry Lomay",
-      "instructorEmail": "instructor5@gmail.com"
+      "instructorName": "John",
+      "instructorEmail": "teacher@gmail.com"
     }
   ]
 }

@@ -18,7 +18,9 @@ export const API = {
   course: {
     courses: () => api.get("/courses"),
     createCourse: (course) => api.post(`/courses`, course),
+    updateCourse: (course) => api.put(`/courses/${course.id}`, course),
+    deleteCourse: (courseId) => api.delete(`/courses/${courseId}`),
     enrollCourse: (course) => api.post(`/enrollments`, course),
     courseEnrollments: () => api.get("/enrollments"),
-    },
+  },
 };

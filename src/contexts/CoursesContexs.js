@@ -13,7 +13,7 @@ const CoursesProvider = ({ children }) => {
       console.log(error);
     }
   };
-  useEffect(() => {
+  useEffect(() => {    
     getAllCourses();
   }, []);
 

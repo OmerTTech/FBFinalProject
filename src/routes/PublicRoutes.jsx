@@ -11,6 +11,7 @@ import NotFound from "../components/NotFound/NotFound";
 import Assignments from "../pages/Assignments/Assignments";
 import Notifications from "../pages/Notifications/Notifications";
 import TeacherCourses from "../pages/MyCourses/TeacherCourses";
+import { SpinnerInfinity } from "spinners-react";
 
 const PublicRoutes = () => {
   const { accessToken, teacher, admin, loading } = useContext(AuthContext);
@@ -38,7 +39,22 @@ const PublicRoutes = () => {
   }, [accessToken, navigate, location.pathname, loading]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "100vh" }}
+      >
+        <SpinnerInfinity
+          size={75}
+          thickness={64}
+          speed={55}
+          color="rgba(57, 152, 172, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+          className="mx-2"
+        />
+        Loading...
+      </div>
+    );
   }
 
   return (
@@ -54,7 +70,10 @@ const PublicRoutes = () => {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/courses/register/" element={<AllCourses />} />
-            <Route path="/courses/" element={teacher ? <TeacherCourses/> : <MyCourses />} />
+            <Route
+              path="/courses/"
+              element={teacher ? <TeacherCourses /> : <MyCourses />}
+            />
             <Route path="/assignments/" element={<Assignments />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />

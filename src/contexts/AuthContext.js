@@ -1,6 +1,5 @@
 import { jwtDecode } from "jwt-decode";
 import React, { createContext, useEffect, useState } from "react";
-import { API } from "../services/Api";
 
 const AuthContext = createContext();
 
@@ -9,7 +8,6 @@ const AuthProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useState(null);
   const [teacher, setTeacher] = useState(false);
   const [admin, setAdmin] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -27,9 +25,7 @@ const AuthProvider = ({ children }) => {
       } else if (getUserData.role === "teacher") {
         setTeacher(true);
       }
-      setLoggedIn(true);
     } else {
-      setLoggedIn(false);
       setAdmin(false);
       setTeacher(false);
     }
@@ -44,7 +40,6 @@ const AuthProvider = ({ children }) => {
     setAccessToken(null);
   };
 
-  
   return (
     <AuthContext.Provider
       value={{

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Card.css";
 import { API } from "../../services/Api";
 import { AuthContext } from "../../contexts/AuthContext";

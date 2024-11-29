@@ -4,7 +4,6 @@ import Semestr from "../../components/Semestr/Semestr";
 import Table from "../../components/Tables/Table";
 import { CourseContext } from "../../contexts/CoursesContexs";
 import { AuthContext } from "../../contexts/AuthContext";
-import { API } from "../../services/Api";
 
 const MyCourses = () => {
   const headers = [
