@@ -61,7 +61,7 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await API.auth.getLogin();
+      const response = await API.auth.allUsers();
       const users = response.data.map((user) => {
         const decoded = jwtDecode(user.accessToken);
         return { ...decoded, accessToken: user.accessToken };

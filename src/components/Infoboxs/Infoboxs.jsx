@@ -12,7 +12,7 @@ const Infoboxs = () => {
   const [allUsers, setAllUsers] = useState([]);
 
   const getAllUsers = async () => {
-    const response = await API.auth.getLogin();
+    const response = await API.auth.allUsers();
     const users = response.data.map((user) => {
       return jwtDecode(user.accessToken);
     });

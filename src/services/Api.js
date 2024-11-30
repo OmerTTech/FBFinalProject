@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5001";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -8,11 +8,10 @@ export const api = axios.create({
 
 export const API = {
   auth: {
-    allData: () => api.get("/users"),
+    allUsers: () => api.get("/users"),
     createUser: (user) => api.post("/users", user),
     updateUser: (id, user) => api.patch(`/users/${id}`, user),
     deleteUser: (id) => api.delete(`/users/${id}`),
-    getLogin: () => api.get("/users"),
     registerUser: (user) => api.post(`/register`, user),
   },
   course: {
@@ -22,5 +21,11 @@ export const API = {
     deleteCourse: (courseId) => api.delete(`/courses/${courseId}`),
     enrollCourse: (course) => api.post(`/enrollments`, course),
     courseEnrollments: () => api.get("/enrollments"),
+  },
+  notification: {
+    allNotifications: () => api.get("/notifications"),
+    createNotification: (notification) => api.post("/notifications", notification),
+    updateNotification: (id, notification) => api.patch(`/notifications/${id}`, notification),
+    deleteNotification: (id) => api.delete(`/notifications/${id}`),
   },
 };

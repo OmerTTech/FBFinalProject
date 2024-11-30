@@ -14,7 +14,7 @@ const Card = ({ Course }) => {
     if (userData && Course.id) {
       const getEnrolls = userData.enrolls || [];
       setEnrolledCourses(getEnrolls);
-  
+
       if (getEnrolls.includes(+Course.id)) {
         setBtn(true);
       }
@@ -23,7 +23,7 @@ const Card = ({ Course }) => {
 
   const btnHandler = async () => {
     console.log(enrolledCourses);
-    
+
     let updatedEnrolls = [...userData.enrolls];
     if (addBtn) {
       updatedEnrolls = enrolledCourses.filter((id) => id !== +Course.id); // Cancel of enrolled course
@@ -31,7 +31,9 @@ const Card = ({ Course }) => {
     } else {
       // Enroll any course
       if (enrolledCourses.length < 4) {
-        updatedEnrolls = [...enrolledCourses, Number(+Course.id)].sort((a, b) => a - b);
+        updatedEnrolls = [...enrolledCourses, Number(+Course.id)].sort(
+          (a, b) => a - b
+        );
         toast.success(
           `Successfully registered for the \n${Course.courseName} course`
         );
@@ -48,7 +50,7 @@ const Card = ({ Course }) => {
 
     const updatedUserData = { ...userData, enrolls: updatedEnrolls };
     console.log(updatedUserData);
-    
+
     const newAccessToken = encodeJWT(updatedUserData);
 
     try {
@@ -64,6 +66,24 @@ const Card = ({ Course }) => {
       setUserData(updatedUserData);
       setEnrolledCourses(updatedEnrolls);
       setBtn(!addBtn);
+
+      const response = await API.notification.allNotifications();
+      const notifications = response.data;
+
+      const highestId = notifications.reduce((max, notification) => {
+        return Math.max(max, Number(notification.id));
+      }, 0);
+
+      const notification = {
+        id: (highestId + 1).toString(),
+        type: "enrollment",
+        student: `${userData.name} ${userData.surname}`,
+        from: Course.courseName,
+        recipient: Course.instructorEmail,
+        date: new Date().toISOString(),
+      };
+
+      await API.notification.createNotification(notification);
     } catch (error) {
       console.error("Failed to update user:", error);
       toast.error("Failed to update the server.");

@@ -5,6 +5,8 @@ import { CourseContext } from "../../contexts/CoursesContexs";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Modal, Button } from "react-bootstrap";
 import { API } from "../../services/Api";
+import sign from "jwt-encode";
+import { jwtDecode } from "jwt-decode";
 
 const TeacherCourses = () => {
   const { allCourses, setAllCourses } = useContext(CourseContext);
@@ -21,7 +23,6 @@ const TeacherCourses = () => {
       const filteredCourses = allCourses.filter(
         (course) => course?.instructorEmail === userData?.email
       );
-      console.log(allCourses);
 
       setMyCourses(filteredCourses);
     }
@@ -40,14 +41,14 @@ const TeacherCourses = () => {
   const handleUpdateSave = async (updatedCourseData) => {
     try {
       await API.course.updateCourse(updatedCourseData);
-      // Güncelleme sonrası allCourses'u güncelle
+
       const response = await API.course.courses();
       const updatedCourses = response.data;
-      setAllCourses(updatedCourses); // Tüm kursları güncelle
+      setAllCourses(updatedCourses);
       const myCoursesFiltered = updatedCourses.filter(
         (course) => course?.instructorEmail === userData?.email
       );
-      setMyCourses(myCoursesFiltered); // Kullanıcının kurslarını güncelle
+      setMyCourses(myCoursesFiltered);
     } catch (error) {
       console.error("Failed to update course:", error);
     }
@@ -57,16 +58,33 @@ const TeacherCourses = () => {
     if (window.confirm("Are you sure you want to delete this course?")) {
       try {
         await API.course.deleteCourse(courseId);
-        // Silme sonrası allCourses'u güncelle
-        const response = await API.course.courses();
-        const updatedCourses = response.data;
-        setAllCourses(updatedCourses); // Tüm kursları güncelle
+
+        const response = await API.auth.allUsers();
+        const users = response.data.map((user) => {
+          const decoded = jwtDecode(user.accessToken);
+          return { ...decoded, accessToken: user.accessToken };
+        });
+
+        for (let user of users) {
+          const currentEnrolls = user.enrolls || [];
+          const updatedEnrolls = currentEnrolls.filter(
+            (enrollId) => enrollId !== Number(courseId)
+          );
+
+          const updatedUser = { ...user, enrolls: updatedEnrolls };
+          const newAccessToken = sign(updatedUser, "your-256-bit-secret");
+
+          await API.auth.updateUser(user.id, { accessToken: newAccessToken });
+        }
+
+        const updatedCoursesResponse = await API.course.courses();
+        const updatedCourses = updatedCoursesResponse.data;
+        setAllCourses(updatedCourses);
         const myCoursesFiltered = updatedCourses.filter(
           (course) => course?.instructorEmail === userData?.email
         );
-        console.log(myCoursesFiltered);
-        
-        setMyCourses(myCoursesFiltered); // Kullanıcının kurslarını güncelle
+
+        setMyCourses(myCoursesFiltered);
       } catch (error) {
         console.error("Failed to delete course:", error);
       }
@@ -75,13 +93,11 @@ const TeacherCourses = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim() === "") {
-      // searchTerm boşsa, tüm kursları geri döndür
       const filteredCourses = allCourses.filter(
         (course) => course?.instructorEmail === userData?.email
       );
       setMyCourses(filteredCourses);
     } else {
-      // Kullanıcının mevcut kurslarını filtrele
       const userCourses = myCourses.filter((course) =>
         course?.courseName.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -121,19 +137,23 @@ const TeacherCourses = () => {
       };
 
       await API.course.createCourse(courseData);
-      // Yeni kursu ekledikten sonra allCourses'u güncelle
       const updatedResponse = await API.course.courses();
       const updatedCourses = updatedResponse.data;
       setAllCourses(updatedCourses);
-      // Kullanıcının kurslarını güncelle
       const myCoursesFiltered = updatedCourses.filter(
         (course) => course?.instructorEmail === userData?.email
       );
-      setMyCourses(myCoursesFiltered); // Kullanıcının kurslarını güncelle
+      setMyCourses(myCoursesFiltered);
+      setShow(false);
+      setCourseName("");
+      setSemester("First");
 
-      setShow(false); // Modalı kapat
-      setCourseName(""); // Kurs adını sıfırla
-      setSemester("First"); // Dönemi varsayılan değere sıfırla
+      const notification = {
+        type: "newCourse",
+        from: courseData.courseName,
+        date: new Date().toISOString(),
+    };
+    await API.notification.createNotification(notification);
     } catch (error) {
       console.error("Failed to create course:", error);
     }

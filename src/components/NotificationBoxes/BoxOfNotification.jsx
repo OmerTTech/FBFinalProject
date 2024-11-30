@@ -1,17 +1,17 @@
 import React from "react";
 
-const BoxOfNotification = ({ type, from, time }) => {
+const BoxOfNotification = ({ type, student, from, time }) => {
   const boxType = {
-    newTask: "new-task-box",
-    upcomingExam: "upcoming-exam-box",
+    newCourse: "new-task-box",
+    enrollment: "enrollment-box",
   };
   const titleForType = {
-    newTask: "New Task!",
-    upcomingExam: "Upcoming Exam!",
+    newCourse: "New Course!",
+    enrollment: "New enrollment!",
   };
   const textForType = {
-    newTask: "A new assignment has been added to the",
-    upcomingExam: "3 days left for the",
+    newCourse: "A new Course has been added to the",
+    enrollment: `A new student named ${student} has enrolled for the`,
   };
   return (
     <div
@@ -24,7 +24,13 @@ const BoxOfNotification = ({ type, from, time }) => {
           <h5 className="card-title">{titleForType[type] || "Not Found.."}</h5>
           <p className="card-text">
             {`${textForType[type] || "Not Found.."} `}
-            <span className="font-monospace">{from || "Not Found.."}</span>.
+            <span
+              className="font-monospace fw-bolder"
+              style={{ fontSize: "1.1rem" }}
+            >
+              {from || "Not Found.."}
+            </span>
+            .
           </p>
         </div>
         {time && (

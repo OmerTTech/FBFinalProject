@@ -39,7 +39,8 @@ const MyCourses = () => {
         console.error("Error fetching enrollments:", error);
       }
     };
-
+    console.log(userData);
+    
     fetchEnrollments();
   }, [allCourses, userData.email]);
 

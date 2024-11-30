@@ -18,11 +18,8 @@
 .new-task {
   color: #77f;
 }
-.upcoming-exam-box {
+.enrollment-box {
   border-left: 4px solid orange;
-}
-.upcoming-exam {
-  color: orange;
 }
 
 .timestamp {
