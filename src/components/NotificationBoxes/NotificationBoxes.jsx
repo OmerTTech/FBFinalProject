@@ -3,9 +3,12 @@ import "./NotificationBoxes.css";
 import BoxOfNotification from "./BoxOfNotification";
 import { API } from "../../services/Api";
 import { AuthContext } from "../../contexts/AuthContext";
+import { SpinnerInfinity } from "spinners-react";
 
 const NotificationBoxes = ({ isPageDashboard }) => {
-  const [screenSize, setScreenSize] = useState("large"); // Başlangıçta varsayılan olarak 'large' ayarlıyoruz
+  const [screenSize, setScreenSize] = useState("large");
+  const [displayedNotifications, setDisplayedNotifications] = useState([]);
+  const { userData, teacher } = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,16 +28,23 @@ const NotificationBoxes = ({ isPageDashboard }) => {
     };
   }, []);
 
-  const [displayedNotifications, setDisplayedNotifications] = useState([]);
-  const { userData } = useContext(AuthContext);
   useEffect(() => {
     const getNotifications = async () => {
       try {
         const response = await API.notification.allNotifications();
         const notificationDatas = response.data;
-        const filteredNotifications = notificationDatas.filter(
+        const sortedNotifications = notificationDatas.sort(
+          (a, b) => b.id - a.id
+        );
+        const filteredNotifications = sortedNotifications.filter(
           (notification) => {
-            return  notification.type !=="enrollment" || notification.recipient === userData.email;
+            if (notification.type === "newCourse" && teacher) {
+              return false;
+            }
+            return (
+              notification.type !== "enrollment" ||
+              notification.recipient === userData.email
+            );
           }
         );
 
@@ -45,6 +55,9 @@ const NotificationBoxes = ({ isPageDashboard }) => {
             ? filteredNotifications.slice(0, 4)
             : filteredNotifications.slice(0, 3)
           : filteredNotifications;
+
+          console.log(notificationsSlicer);
+          
         setDisplayedNotifications(notificationsSlicer);
       } catch (error) {
         console.error("Error fetching notifications:", error);
@@ -55,15 +68,21 @@ const NotificationBoxes = ({ isPageDashboard }) => {
 
   return (
     <div className="notifications-container d-flex flex-column">
-      {displayedNotifications.map((notification, index) => (
-        <BoxOfNotification
-          key={index}
-          type={notification.type}
-          student={notification.student}
-          from={notification.from}
-          time={notification.date}
-        />
-      ))}
+      {displayedNotifications.length > 0 ? displayedNotifications.map((notification, index) => (
+          <BoxOfNotification
+            key={index}
+            type={notification.type}
+            student={notification.student}
+            from={notification.from}
+            time={notification.date}
+          />
+        )
+      ) : (
+        <p className="alert alert-danger m-0 text-center w-100">
+          <SpinnerInfinity size={50} speed={50} className="mx-3" />
+          No Notification Found..
+        </p>
+      )}
     </div>
   );
 };

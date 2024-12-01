@@ -71,10 +71,12 @@ const TeacherCourses = () => {
             (enrollId) => enrollId !== Number(courseId)
           );
 
-          const updatedUser = { ...user, enrolls: updatedEnrolls };
-          const newAccessToken = sign(updatedUser, "your-256-bit-secret");
+          const { accessToken, ...updatedUserData } = user;
+          const newUserData = { ...updatedUserData, enrolls: updatedEnrolls };
 
-          await API.auth.updateUser(user.id, { accessToken: newAccessToken });
+          const newAccessToken = sign(newUserData, "your-256-bit-secret");
+
+          await API.auth.updateUser(newUserData.id, { accessToken: newAccessToken });
         }
 
         const updatedCoursesResponse = await API.course.courses();
@@ -118,6 +120,16 @@ const TeacherCourses = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const formatDate = (date) => {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+  };
+
   const handleSave = async () => {
     try {
       const response = await API.course.courses();
@@ -148,12 +160,24 @@ const TeacherCourses = () => {
       setCourseName("");
       setSemester("First");
 
+      const notificationResponse = await API.notification.allNotifications();
+      const notifications = notificationResponse.data;
+      const highestNotificationId = notifications.reduce(
+        (max, notification) => {
+          return Math.max(max, Number(notification.id));
+        },
+        0
+      );
+      const newNotificationId = (highestNotificationId + 1).toString();
+
+      const notificationDate = formatDate(new Date());
       const notification = {
+        id: String(newNotificationId),
         type: "newCourse",
         from: courseData.courseName,
-        date: new Date().toISOString(),
-    };
-    await API.notification.createNotification(notification);
+        date: notificationDate,
+      };
+      await API.notification.createNotification(notification);
     } catch (error) {
       console.error("Failed to create course:", error);
     }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Tables.css";
 import { Modal, Button } from "react-bootstrap";
-import { API } from "../../services/Api";
 import { SpinnerCircular } from "spinners-react";
 
 const Table = ({

@@ -10,6 +10,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile_submenu = () => {
   const { logoutHandler, userData } = useContext(AuthContext);
+  
   const fullname = `${userData.name ? userData.name : ""} ${
     userData.surname ? userData.surname : ""
   }`;

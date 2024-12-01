@@ -26,10 +26,9 @@ const Card = ({ Course }) => {
 
     let updatedEnrolls = [...userData.enrolls];
     if (addBtn) {
-      updatedEnrolls = enrolledCourses.filter((id) => id !== +Course.id); // Cancel of enrolled course
+      updatedEnrolls = enrolledCourses.filter((id) => id !== +Course.id);
       toast.success(`Successfully canceled the \n${Course.courseName} course`);
     } else {
-      // Enroll any course
       if (enrolledCourses.length < 4) {
         updatedEnrolls = [...enrolledCourses, Number(+Course.id)].sort(
           (a, b) => a - b
@@ -47,11 +46,11 @@ const Card = ({ Course }) => {
       const secret = "your-256-bit-secret";
       return sign(userData, secret);
     };
+    const { accessToken, ...updatedUserData } = userData;
+    const newUserData = { ...updatedUserData, enrolls: updatedEnrolls };
+    console.log(newUserData);
 
-    const updatedUserData = { ...userData, enrolls: updatedEnrolls };
-    console.log(updatedUserData);
-
-    const newAccessToken = encodeJWT(updatedUserData);
+    const newAccessToken = encodeJWT(newUserData);
 
     try {
       await API.auth.updateUser(userData.id, { accessToken: newAccessToken });
@@ -63,30 +62,67 @@ const Card = ({ Course }) => {
       }
 
       setAccessToken(newAccessToken);
-      setUserData(updatedUserData);
+      setUserData(newUserData);
       setEnrolledCourses(updatedEnrolls);
       setBtn(!addBtn);
-
-      const response = await API.notification.allNotifications();
-      const notifications = response.data;
-
-      const highestId = notifications.reduce((max, notification) => {
-        return Math.max(max, Number(notification.id));
-      }, 0);
-
-      const notification = {
-        id: (highestId + 1).toString(),
-        type: "enrollment",
-        student: `${userData.name} ${userData.surname}`,
-        from: Course.courseName,
-        recipient: Course.instructorEmail,
-        date: new Date().toISOString(),
-      };
-
-      await API.notification.createNotification(notification);
     } catch (error) {
       console.error("Failed to update user:", error);
       toast.error("Failed to update the server.");
+    }
+
+    let notificationId;
+
+    if (addBtn) {
+      try {
+        const response = await API.notification.allNotifications();
+        const notifications = response.data;
+        const notificationToDelete = notifications.find(
+          (notification) =>
+            notification.type === "enrollment" &&
+            notification.from === Course.courseName &&
+            notification.student === `${userData.name} ${userData.surname}`
+        );
+        if (notificationToDelete) {
+          notificationId = notificationToDelete.id;
+          await API.notification.deleteNotification(notificationId);
+        }
+      } catch (error) {
+        console.error("Failed to delete notification:", error);
+      }
+    } else {
+      try {
+        const response = await API.notification.allNotifications();
+        const notifications = response.data;
+
+        const highestId = notifications.reduce((max, notification) => {
+          return Math.max(max, Number(notification.id));
+        }, 0);
+
+        const formatDate = (date) => {
+          const day = String(date.getDate()).padStart(2, "0");
+          const month = String(date.getMonth() + 1).padStart(2, "0");
+          const year = date.getFullYear();
+          const hours = String(date.getHours()).padStart(2, "0");
+          const minutes = String(date.getMinutes()).padStart(2, "0");
+      
+          return `${day}-${month}-${year} ${hours}:${minutes}`;
+        };
+      
+
+        const notification = {
+          id: (highestId + 1).toString(),
+          type: "enrollment",
+          student: `${userData.name&&userData.name} ${userData.surname&&userData.surname}`,
+          from: Course.courseName,
+          recipient: Course.instructorEmail,
+          date: formatDate(new Date()),
+        };
+
+        await API.notification.createNotification(notification);
+      } catch (error) {
+        console.error("Failed to create Notification:", error);
+        toast.error("Failed to create Notification");
+      }
     }
   };
 

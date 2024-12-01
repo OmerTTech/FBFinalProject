@@ -23,7 +23,7 @@ export const API = {
     courseEnrollments: () => api.get("/enrollments"),
   },
   notification: {
-    allNotifications: () => api.get("/notifications"),
+    allNotifications: () => api.get("/notifications/"),
     createNotification: (notification) => api.post("/notifications", notification),
     updateNotification: (id, notification) => api.patch(`/notifications/${id}`, notification),
     deleteNotification: (id) => api.delete(`/notifications/${id}`),
