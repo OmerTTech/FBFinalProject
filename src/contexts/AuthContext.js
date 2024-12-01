@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const getLoginUser = () => {
     let savedToken = localStorage.getItem("accessToken");
     let getUserData = savedToken && jwtDecode(savedToken);
     if (!savedToken) {
@@ -22,14 +22,20 @@ const AuthProvider = ({ children }) => {
       setUserData(getUserData);
       if (getUserData.role === "admin") {
         setAdmin(true);
+        setTeacher(true);
       } else if (getUserData.role === "teacher") {
         setTeacher(true);
+        setAdmin(false);
       }
     } else {
       setAdmin(false);
       setTeacher(false);
     }
     setLoading(false);
+  }
+
+  useEffect(() => {
+    getLoginUser()
   }, [accessToken]);
 
   const logoutHandler = () => {
@@ -53,6 +59,7 @@ const AuthProvider = ({ children }) => {
         userData,
         setUserData,
         loading,
+        getLoginUser
       }}
     >
       {children}

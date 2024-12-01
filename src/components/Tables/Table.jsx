@@ -10,6 +10,7 @@ const Table = ({
   handleDelete,
   Container = true,
   Actionbtn = false,
+  handleShow,
 }) => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -45,7 +46,7 @@ const Table = ({
 
   const tableContent = (
     <>
-      {Datas.length >= 1 ? (
+      {Datas.length > 0 ? (
         <table>
           <thead>
             <tr>
@@ -55,12 +56,12 @@ const Table = ({
             </tr>
           </thead>
           <tbody>
-            {Datas?.map((item, index) => (
+            {Actionbtn != "ManageUsers" && Datas?.map((item, index) => (
               <tr key={index}>
                 {Object.values(item).map((data, i) => (
                   <td key={i}>{data}</td>
                 ))}
-                {Actionbtn && (
+                {Actionbtn === "myCourses" && (
                   <td>
                     <button
                       className="bg-success rounded text-white p-1 mx-1 border-2 border-second"
@@ -76,6 +77,34 @@ const Table = ({
                     </button>
                   </td>
                 )}
+              </tr>
+            ))}
+            {Actionbtn === "ManageUsers" && Datas?.map((item, index) => (
+              <tr key={index}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.surname}</td>
+                <td>{item.email}</td>
+                <td>{item.semester}</td>
+                <td>
+                  <select
+                    className="form-select"
+                    defaultValue={item.role}
+                    onChange={(e) => {
+                      const updatedUser  = {
+                        ...item,
+                        role: e.target.value,
+                      };
+                      console.log(updatedUser);
+                      
+                      handleUpdateSave(updatedUser );
+                    }}
+                  >
+                    <option value="admin">Admin</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="student">Student</option>
+                  </select>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -111,7 +140,7 @@ const Table = ({
             onChange={(e) => setCourseName(e.target.value)}
           />
           <select
-            className="form-control p-1 m-1 border-3 border-second"
+            className ="form-control p-1 m-1 border-3 border-second"
             value={semester}
             onChange={(e) => setSemester(e.target.value)}
           >

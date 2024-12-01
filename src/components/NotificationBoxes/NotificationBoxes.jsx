@@ -8,7 +8,7 @@ import { SpinnerInfinity } from "spinners-react";
 const NotificationBoxes = ({ isPageDashboard }) => {
   const [screenSize, setScreenSize] = useState("large");
   const [displayedNotifications, setDisplayedNotifications] = useState([]);
-  const { userData, teacher } = useContext(AuthContext);
+  const { userData, teacher, admin } = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -79,7 +79,14 @@ const NotificationBoxes = ({ isPageDashboard }) => {
         )
       ) : (
         <p className="alert alert-danger m-0 text-center w-100">
-          <SpinnerInfinity size={50} speed={50} className="mx-3" />
+          <SpinnerInfinity
+          size={50}
+          thickness={64}
+          speed={55}
+          color="rgba(57, 152, 172, 1)"
+          secondaryColor="rgba(0, 0, 0, 0.44)"
+          className="mx-3"
+        />
           No Notification Found..
         </p>
       )}

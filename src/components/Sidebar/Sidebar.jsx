@@ -54,6 +54,12 @@ const Sidebar = () => {
               <h4 className="h4-nav">All Courses </h4>
             </NavLink>
           )}
+          {admin && (
+            <NavLink to="/manage/users" className="nav-option">
+              <LiaUserCogSolid className="icon" />
+              <h4 className="h4-nav">Manage Users</h4>
+            </NavLink>
+          )}
           {/* ONLY STUDENTS. */}
           <NavLink
             end
@@ -132,12 +138,7 @@ const Sidebar = () => {
             <IoNotificationsOutline className="icon" />
             <h4 className="h4-nav">Notifications</h4>
           </NavLink>
-          {admin && (
-            <NavLink to="/manage/users" className="nav-option">
-              <LiaUserCogSolid className="icon" />
-              <h4 className="h4-nav">Manage Users</h4>
-            </NavLink>
-          )}
+
           {isSmallScreen && (
             <>
               <NavLink to="profile" className="nav-option">

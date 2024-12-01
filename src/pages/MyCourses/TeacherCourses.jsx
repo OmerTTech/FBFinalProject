@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./MyCourses.css";
 import Table from "../../components/Tables/Table";
 import { CourseContext } from "../../contexts/CoursesContexs";
@@ -217,7 +217,7 @@ const TeacherCourses = () => {
           handleUpdateSave={handleUpdateSave}
           handleDelete={handleDelete}
           Container={false}
-          Actionbtn={true}
+          Actionbtn={"myCourses"}
         />
 
         {/* <!-- Modal --> */}

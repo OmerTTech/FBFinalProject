@@ -12,6 +12,7 @@ import Assignments from "../pages/Assignments/Assignments";
 import Notifications from "../pages/Notifications/Notifications";
 import TeacherCourses from "../pages/MyCourses/TeacherCourses";
 import { SpinnerInfinity } from "spinners-react";
+import ManageUsers from "../pages/ManageUsers/ManageUsers";
 
 const PublicRoutes = () => {
   const { accessToken, teacher, admin, loading } = useContext(AuthContext);
@@ -77,13 +78,12 @@ const PublicRoutes = () => {
             <Route path="/assignments/" element={<Assignments />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />
+            
+            {accessToken && admin && (
+              <Route path="/manage/users" element={<ManageUsers />} />
+            )}
           </Routes>
         </PublicLayout>
-      )}
-      {accessToken && admin && (
-        <Routes>
-          <Route path="/admin" />
-        </Routes>
       )}
     </>
   );
