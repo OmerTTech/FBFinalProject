@@ -40,7 +40,7 @@ const Infoboxs = () => {
         <div className="col-sm-12 col-md-6 col-lg-3">
           <div className="card-counter danger">
             <HiOutlineClipboardDocumentList className="icon" />
-            <span className="count-numbers">{allCourses.length * 2}</span>
+            <span className="count-numbers">0</span>
             <span className="count-name">Exams</span>
           </div>
         </div>

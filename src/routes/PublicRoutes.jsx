@@ -13,6 +13,7 @@ import Notifications from "../pages/Notifications/Notifications";
 import TeacherCourses from "../pages/MyCourses/TeacherCourses";
 import { SpinnerInfinity } from "spinners-react";
 import ManageUsers from "../pages/ManageUsers/ManageUsers";
+import SoonFuture from "../pages/SoonFuture/SoonFuture";
 
 const PublicRoutes = () => {
   const { accessToken, teacher, admin, loading } = useContext(AuthContext);
@@ -75,12 +76,21 @@ const PublicRoutes = () => {
               path="/courses/"
               element={teacher ? <TeacherCourses /> : <MyCourses />}
             />
-            <Route path="/assignments/" element={<Assignments />} />
+            <Route path="/assignments/" element={<SoonFuture />} />
+            <Route path="/exams/register" element={<SoonFuture />} />
+            <Route path="/exams" element={<SoonFuture />} />
+            <Route path="/class/schedule" element={<SoonFuture />} />
+            <Route path="/exam/results" element={<SoonFuture />} />
+            <Route path="/announcement" element={<SoonFuture />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="*" element={<NotFound />} />
-            
+
             {accessToken && admin && (
-              <Route path="/manage/users" element={<ManageUsers />} />
+              <>
+                <Route path="/manage/users" element={<ManageUsers />} />
+                <Route path="/courses/manage" element={<SoonFuture />} />
+                <Route path="/exams/manage" element={<SoonFuture />} />
+              </>
             )}
           </Routes>
         </PublicLayout>

@@ -2,23 +2,23 @@
   "users": [
     {
       "id": "1",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6Im51bGwiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiYWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4iLCJlbnJvbGxzIjpbXX0.VBE1eAdHo0xXBLUeOZtBGwApzBBhS-OSvekS9h7hxv8"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6Im51bGwiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiQWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4iLCJlbnJvbGxzIjpbXX0.SlUkcS70P-2pCV9UJeG8ssQMQRihFrdSsipwqvAIaoo"
     },
     {
       "id": "2",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ1c2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIiwiZW5yb2xscyI6WzEsMTFdfQ.X-Pa3mv8FC-WDgQLPgcmU4wOafKVDh71uKJiFAgKwLQ"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJVc2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIiwiZW5yb2xscyI6WzEsMTBdfQ.mLtafRQ_jPZA_ZY3cPBgRIYTbVPgs8BD3_94o0oOYoA"
     },
     {
       "id": "3",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik5henJpbiIsInN1cm5hbWUiOiI_Pz8iLCJlbWFpbCI6InVzZXIyQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoidXNlcjEyMyIsInJvbGUiOiJzdHVkZW50Iiwic2VtZXN0ZXIiOiJTRUNPTkRfU0VNRVNURVIiLCJlbnJvbGxzIjpbMl19.V4Usc5bESGDm7quv2NF9BfXwheHAVP_dAMDloV0-1Ss"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik5henJpbiIsInN1cm5hbWUiOiIuIiwiZW1haWwiOiJ1c2VyMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlVzZXIxMjMiLCJyb2xlIjoic3R1ZGVudCIsInNlbWVzdGVyIjoiU0VDT05EX1NFTUVTVEVSIiwiZW5yb2xscyI6WzJdfQ.YJxvboi2V3T9ullxxXEbzV9peFYtoCnVngifJ2uaL6U"
     },
     {
       "id": "4",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkpvaG4iLCJzdXJuYW1lIjoiIERvZSIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRlYWNoZXIxMjMiLCJyb2xlIjoidGVhY2hlciIsImVucm9sbHMiOltdfQ.0uG1WTMupFyU6J32QIULJce0yIi3X66ugNKctdxdl3A"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IkpvaG4iLCJzdXJuYW1lIjoiIERvZSIsImVtYWlsIjoidGVhY2hlckBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlRlYWNoZXIxMjMiLCJyb2xlIjoidGVhY2hlciIsImVucm9sbHMiOltdfQ.qDCUXQdDzQ2tUIT5UyjaWKTENcr6O8uEWZp2zpgoeCg"
     },
     {
       "id": "5",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6IkhhcnJ5Iiwic3VybmFtZSI6IiBBbmRlcnNvbiIsImVtYWlsIjoidGVhY2hlcjJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZWFjaGVyMTIzIiwicm9sZSI6InRlYWNoZXIiLCJlbnJvbGxzIjpbXX0.xJVjg-QL-Yk6_Y4w1JzrcYt7FKwz083Ke9rTsfL-4mk"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibmFtZSI6IkhhcnJ5Iiwic3VybmFtZSI6IiBBbmRlcnNvbiIsImVtYWlsIjoidGVhY2hlcjJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJUZWFjaGVyMTIzIiwicm9sZSI6InRlYWNoZXIiLCJlbnJvbGxzIjpbXX0.b0gsWw3dj4Jz3EHvVaG0A3qleQrDZkV3eNnJU9PUs_M"
     }
   ],
   "courses": [
@@ -32,7 +32,7 @@
     {
       "id": "2",
       "courseName": "Java Backend",
-      "semester": "First",
+      "semester": "Second",
       "instructorName": "Harry Anderson",
       "instructorEmail": "teacher2@gmail.com"
     },
@@ -65,20 +65,6 @@
       "instructorEmail": "teacher@gmail.com"
     },
     {
-      "id": "8",
-      "courseName": "TEST 1",
-      "semester": "First",
-      "instructorName": "John",
-      "instructorEmail": "teacher@gmail.com"
-    },
-    {
-      "id": "9",
-      "courseName": "TEST 2",
-      "semester": "Second",
-      "instructorName": "John",
-      "instructorEmail": "teacher@gmail.com"
-    },
-    {
       "id": "10",
       "courseName": "IT Courses",
       "semester": "First",
@@ -87,7 +73,7 @@
     },
     {
       "id": "11",
-      "courseName": "Programming",
+      "courseName": "Python Programming",
       "semester": "First",
       "instructorName": "John",
       "instructorEmail": "teacher@gmail.com"
@@ -121,6 +107,30 @@
       "from": "Programming",
       "recipient": "teacher@gmail.com",
       "date": "01-12-2024 14:45"
+    },
+    {
+      "id": "5",
+      "type": "enrollment",
+      "student": "Omer Tapdiqov",
+      "from": "TEST 1",
+      "recipient": "teacher@gmail.com",
+      "date": "06-12-2024 13:48"
+    },
+    {
+      "id": "6",
+      "type": "enrollment",
+      "student": "Nazrin .",
+      "from": "Java Backend",
+      "recipient": "teacher2@gmail.com",
+      "date": "05-01-2025 19:13"
+    },
+    {
+      "id": "7",
+      "type": "enrollment",
+      "student": "Omer Tapdiqov",
+      "from": "IT Courses",
+      "recipient": "teacher@gmail.com",
+      "date": "05-01-2025 19:14"
     }
   ]
 }

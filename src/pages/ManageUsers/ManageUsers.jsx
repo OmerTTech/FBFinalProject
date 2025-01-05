@@ -33,7 +33,7 @@ const ManageUsers = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
-
+  
   const encodeJWT = (userData) => {
     const secret = "your-256-bit-secret";
     return sign(userData, secret);
