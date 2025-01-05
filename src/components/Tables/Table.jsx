@@ -10,7 +10,6 @@ const Table = ({
   handleDelete,
   Container = true,
   Actionbtn = false,
-  handleShow,
 }) => {
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -56,57 +55,77 @@ const Table = ({
             </tr>
           </thead>
           <tbody>
-            {Actionbtn != "ManageUsers" && Datas?.map((item, index) => (
-              <tr key={index}>
-                {Object.values(item).map((data, i) => (
-                  <td key={i}>{data}</td>
-                ))}
-                {Actionbtn === "myCourses" && (
+            {Actionbtn != "ManageUsers" &&
+              Datas?.map((item, index) => (
+                <tr key={index}>
+                  {Object.values(item).map((data, i) => (
+                    <td key={i}>{data}</td>
+                  ))}
+                  {Actionbtn === "myCourses" && (
+                    <td>
+                      <button
+                        className="bg-success rounded text-white p-1 mx-1 border-2 border-second"
+                        onClick={() => handleUpdateShow(item)}
+                      >
+                        Update
+                      </button>
+                      <button
+                        className="bg-danger rounded text-white p-1 mx-1 border-2 border-second"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  )}
+                </tr>
+              ))}
+            {Actionbtn === "ManageUsers" &&
+              Datas?.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.id}</td>
+                  <td>{item.name}</td>
+                  <td>{item.surname}</td>
+                  <td>{item.email}</td>
                   <td>
-                    <button
-                      className="bg-success rounded text-white p-1 mx-1 border-2 border-second"
-                      onClick={() => handleUpdateShow(item)}
+                    <select
+                      className="form-select"
+                      defaultValue={item.semester}
+                      onChange={(e) => {
+                        const updatedUser = {
+                          ...item,
+                          semester: e.target.value,
+                        };
+                        console.log(updatedUser);
+
+                        handleUpdateSave(updatedUser);
+                      }}
                     >
-                      Update
-                    </button>
-                    <button
-                      className="bg-danger rounded text-white p-1 mx-1 border-2 border-second"
-                      onClick={() => handleDelete(item.id)}
-                    >
-                      Delete
-                    </button>
+                      <option value="">Empty</option>
+                      <option value="FIRST_SEMESTER">FIRST_SEMESTER</option>
+                      <option value="SECOND_SEMESTER">SECOND_SEMESTER</option>
+                    </select>
                   </td>
-                )}
-              </tr>
-            ))}
-            {Actionbtn === "ManageUsers" && Datas?.map((item, index) => (
-              <tr key={index}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.surname}</td>
-                <td>{item.email}</td>
-                <td>{item.semester}</td>
-                <td>
-                  <select
-                    className="form-select"
-                    defaultValue={item.role}
-                    onChange={(e) => {
-                      const updatedUser  = {
-                        ...item,
-                        role: e.target.value,
-                      };
-                      console.log(updatedUser);
-                      
-                      handleUpdateSave(updatedUser );
-                    }}
-                  >
-                    <option value="admin">Admin</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="student">Student</option>
-                  </select>
-                </td>
-              </tr>
-            ))}
+                  <td>
+                    <select
+                      className="form-select"
+                      defaultValue={item.role}
+                      onChange={(e) => {
+                        const updatedUser = {
+                          ...item,
+                          role: e.target.value,
+                        };
+                        console.log(updatedUser);
+
+                        handleUpdateSave(updatedUser);
+                      }}
+                    >
+                      <option value="admin">Admin</option>
+                      <option value="teacher">Teacher</option>
+                      <option value="student">Student</option>
+                    </select>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       ) : (
@@ -140,7 +159,7 @@ const Table = ({
             onChange={(e) => setCourseName(e.target.value)}
           />
           <select
-            className ="form-control p-1 m-1 border-3 border-second"
+            className="form-control p-1 m-1 border-3 border-second"
             value={semester}
             onChange={(e) => setSemester(e.target.value)}
           >

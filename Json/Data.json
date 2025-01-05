@@ -2,15 +2,15 @@
   "users": [
     {
       "id": "1",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6Im51bGwiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiQWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4iLCJlbnJvbGxzIjpbXX0.SlUkcS70P-2pCV9UJeG8ssQMQRihFrdSsipwqvAIaoo"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFkbWluIiwic3VybmFtZSI6Im51bGwiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiQWRtaW4xMjMiLCJyb2xlIjoiYWRtaW4iLCJlbnJvbGxzIjpbXSwic2VtZXN0ZXIiOiIifQ.2RzsSh9rZxeorlwnd_Z63RwVoK-WgproLBcogYaIhf8"
     },
     {
       "id": "2",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJVc2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IkZJUlNUX1NFTUVTVEVSIiwiZW5yb2xscyI6WzEsMTBdfQ.mLtafRQ_jPZA_ZY3cPBgRIYTbVPgs8BD3_94o0oOYoA"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ik9tZXIiLCJzdXJuYW1lIjoiVGFwZGlxb3YiLCJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJVc2VyMTIzIiwicm9sZSI6InN0dWRlbnQiLCJzZW1lc3RlciI6IlNFQ09ORF9TRU1FU1RFUiIsImVucm9sbHMiOlsxLDEwXX0.0XHOaqLPeoxs4n3_L_7CEvr2mSxmahq65L2Niidd6MI"
     },
     {
       "id": "3",
-      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik5henJpbiIsInN1cm5hbWUiOiIuIiwiZW1haWwiOiJ1c2VyMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlVzZXIxMjMiLCJyb2xlIjoic3R1ZGVudCIsInNlbWVzdGVyIjoiU0VDT05EX1NFTUVTVEVSIiwiZW5yb2xscyI6WzJdfQ.YJxvboi2V3T9ullxxXEbzV9peFYtoCnVngifJ2uaL6U"
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6Ik5henJpbiIsInN1cm5hbWUiOiIuIiwiZW1haWwiOiJ1c2VyMkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlVzZXIxMjMiLCJyb2xlIjoic3R1ZGVudCIsInNlbWVzdGVyIjoiU0VDT05EX1NFTUVTVEVSIiwiZW5yb2xscyI6WzIsM119.DJG3rlG_fYs0LLYU4Vfg2QPh3J3LY-7Dv5GqGA93ywI"
     },
     {
       "id": "4",
@@ -24,7 +24,7 @@
   "courses": [
     {
       "id": "1",
-      "courseName": "React Development",
+      "courseName": "React Developer Course",
       "semester": "First",
       "instructorName": "Jarvis Pervine",
       "instructorEmail": "teacher@gmail.com"
@@ -45,7 +45,7 @@
     },
     {
       "id": "4",
-      "courseName": "AI Machine learning",
+      "courseName": "AI Machine learning Advanced",
       "semester": "Second",
       "instructorName": "Smith Carlson",
       "instructorEmail": "teacher@gmail.com"
@@ -77,6 +77,27 @@
       "semester": "First",
       "instructorName": "John",
       "instructorEmail": "teacher@gmail.com"
+    },
+    {
+      "id": "12",
+      "courseName": "Mern Stack Development",
+      "semester": "First",
+      "instructorName": "Jarvis Pervine",
+      "instructorEmail": "teacher@gmail.com"
+    },
+    {
+      "id": "13",
+      "courseName": "Angular web Development",
+      "semester": "First",
+      "instructorName": "Jarvis Pervine",
+      "instructorEmail": "teacher@gmail.com"
+    },
+    {
+      "id": "14",
+      "courseName": "New Course",
+      "semester": "Second",
+      "instructorName": "John",
+      "instructorEmail": "teacher@gmail.com"
     }
   ],
   "notifications": [
@@ -91,14 +112,6 @@
       "type": "newCourse",
       "from": "Java Development",
       "date": "30-11-2024 19:10"
-    },
-    {
-      "id": "3",
-      "type": "enrollment",
-      "student": "Omer Tapdiqov",
-      "from": "React Development",
-      "recipient": "teacher@gmail.com",
-      "date": "01-12-2024 14:45"
     },
     {
       "id": "4",
@@ -128,9 +141,31 @@
       "id": "7",
       "type": "enrollment",
       "student": "Omer Tapdiqov",
+      "from": "React Development",
+      "recipient": "teacher@gmail.com",
+      "date": "05-01-2025 21:40"
+    },
+    {
+      "id": "8",
+      "type": "enrollment",
+      "student": "Omer Tapdiqov",
       "from": "IT Courses",
       "recipient": "teacher@gmail.com",
-      "date": "05-01-2025 19:14"
+      "date": "05-01-2025 21:40"
+    },
+    {
+      "id": "9",
+      "type": "enrollment",
+      "student": "Nazrin .",
+      "from": "AI Machine learning",
+      "recipient": "teacher@gmail.com",
+      "date": "05-01-2025 21:47"
+    },
+    {
+      "id": "10",
+      "type": "newCourse",
+      "from": "New Course",
+      "date": "05-01-2025 21:49"
     }
   ]
 }

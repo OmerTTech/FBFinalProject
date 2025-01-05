@@ -43,16 +43,16 @@ const LoginPage = () => {
     setShowPassword(false);
 
     if (!inputValues.email && !inputValues.password) {
-      toast.error("Email ve Şifre boş bırakılamaz");
+      toast.error("Email and Password cannot be blank");
       setEmailBorder("red");
       setPasswordBorder("red");
       return;
     } else if (!inputValues.email) {
-      toast.error("Email boş bırakılamaz");
+      toast.error("Email cannot be blank");
       setEmailBorder("red");
       return;
     } else if (!inputValues.password) {
-      toast.error("Şifre boş bırakılamaz");
+      toast.error("Password cannot be blank");
       setPasswordBorder("red");
       return;
     } else {
@@ -78,15 +78,15 @@ const LoginPage = () => {
           }
           setAccessToken(token);
         } else {
-          toast.error("Yanlış şifre");
+          toast.error("Password is incorrected!");
           setPasswordBorder("red");
         }
       } else {
-        toast.error("Hesap bulunamadı");
+        toast.error("Account not found!");
         setEmailBorder("red");
       }
     } catch (error) {
-      console.error("Giriş hatası", error);
+      console.error("Login error", error);
     }
   };
 
@@ -102,7 +102,7 @@ const LoginPage = () => {
         <div className={`inputForm ${emailBorder && "error"}`}>
           <FiAtSign className="login-icons" />
           <input
-            type="text"
+            type="email"
             className="input"
             placeholder="Enter your Email"
             name="email"

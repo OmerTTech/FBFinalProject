@@ -103,20 +103,7 @@ const ManageUsers = () => {
     }
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = (user) => {
-    setSelectedUser(user);
-    setUserRole(user.role); // Kullanıcının mevcut rolünü ayarla
-    setShow(true);
-  };
-  const handleSave = async () => {
-    const updatedUserData = {
-      id: selectedUser.id,
-      role: userRole, // Sadece rolü güncelle
-    };
-    await handleUpdateSave(updatedUserData);
-    handleClose();
-  };
+  
   const headers = ["ID", "Name", "Surname", "Email", "Semester", "Role"];
 
   return (
@@ -147,41 +134,7 @@ const ManageUsers = () => {
           handleUpdateSave={handleUpdateSave}
           Container={false}
           Actionbtn={"ManageUsers"}
-          handleShow={handleShow}
         />
-
-        {/* <!-- Modal --> */}
-        <Modal show={show} onHide={handleClose} className="mt-5">
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <select
-              className="form-control p-1 m-1 border-3 border-second"
-              value={userRole}
-              onChange={(e) => setUserRole(e.target.value)}
-            >
-              <option value="">Select Role</option>
-              <option value="admin">Admin</option>
-              <option value="editor">Editor</option>
-              <option value="viewer">Viewer</option>
-            </select>
-          </Modal.Body>
-          <Modal.Footer>
-            <div className="d-flex gap-2 ">
-              <Button
-                className="px-3"
-                variant="secondary"
-                onClick={handleClose}
-              >
-                Close
-              </Button>
-              <Button className="px-5" variant="success" onClick={handleSave}>
-                Save
-              </Button>
-            </div>
-          </Modal.Footer>
-        </Modal>
       </div>
     </>
   );
