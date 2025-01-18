@@ -41,7 +41,7 @@ const LoginPage = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setShowPassword(false);
-
+  
     if (!inputValues.email && !inputValues.password) {
       toast.error("Email and Password cannot be blank");
       setEmailBorder("red");
@@ -59,7 +59,7 @@ const LoginPage = () => {
       setEmailBorder("");
       setPasswordBorder("");
     }
-
+  
     try {
       const response = await API.auth.allUsers();
       const users = response.data.map((user) => {
@@ -67,23 +67,24 @@ const LoginPage = () => {
         return { ...decoded, accessToken: user.accessToken };
       });
       const user = users.find((user) => user.email === inputValues.email);
-
-      if (user) {
-        if (user.password === inputValues.password) {
-          const token = user.accessToken;
-          if (rememberMe) {
-            localStorage.setItem("accessToken", token);
-          } else {
-            sessionStorage.setItem("accessToken", token);
-          }
-          setAccessToken(token);
-        } else {
-          toast.error("Password is incorrected!");
-          setPasswordBorder("red");
-        }
-      } else {
+  
+      if (!user) {
         toast.error("Account not found!");
         setEmailBorder("red");
+        return;
+      }
+  
+      if (user.password === inputValues.password) {
+        const token = user.accessToken;
+        if (rememberMe) {
+          localStorage.setItem("accessToken", token);
+        } else {
+          sessionStorage.setItem("accessToken", token);
+        }
+        setAccessToken(token);
+      } else {
+        toast.error("Password is incorrected!");
+        setPasswordBorder("red");
       }
     } catch (error) {
       console.error("Login error", error);

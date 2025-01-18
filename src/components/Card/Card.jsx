@@ -22,8 +22,6 @@ const Card = ({ Course }) => {
   }, [userData, Course.id]);
 
   const btnHandler = async () => {
-    console.log(enrolledCourses);
-
     let updatedEnrolls = [...userData.enrolls];
     if (addBtn) {
       updatedEnrolls = enrolledCourses.filter((id) => id !== +Course.id);
@@ -48,8 +46,6 @@ const Card = ({ Course }) => {
     };
     const { accessToken, ...updatedUserData } = userData;
     const newUserData = { ...updatedUserData, enrolls: updatedEnrolls };
-    console.log(newUserData);
-
     const newAccessToken = encodeJWT(newUserData);
 
     try {

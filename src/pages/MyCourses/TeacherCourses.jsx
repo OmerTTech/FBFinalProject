@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./MyCourses.css";
 import Table from "../../components/Tables/Table";
 import { CourseContext } from "../../contexts/CoursesContexs";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -59,6 +58,20 @@ const TeacherCourses = () => {
       try {
         await API.course.deleteCourse(courseId);
 
+        // Delete the associated notification
+      const notificationResponse = await API.notification.allNotifications();
+      const notifications = notificationResponse.data;
+
+      // Find the notification associated with the course
+      const notificationToDelete = notifications.find(
+        (notification) =>
+          notification.type === "newCourse" && notification.id === courseId
+      );
+
+      if (notificationToDelete) {
+        await API.notification.deleteNotification(notificationToDelete.id);
+      }
+
         const response = await API.auth.allUsers();
         const users = response.data.map((user) => {
           const decoded = jwtDecode(user.accessToken);
@@ -100,7 +113,7 @@ const TeacherCourses = () => {
       );
       setMyCourses(filteredCourses);
     } else {
-      const userCourses = myCourses.filter((course) =>
+      const userCourses = allCourses.filter((course) =>
         course?.courseName.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setMyCourses(userCourses);
@@ -223,7 +236,7 @@ const TeacherCourses = () => {
         {/* <!-- Modal --> */}
         <Modal show={show} onHide={handleClose} className="mt-5">
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Create Course</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <input

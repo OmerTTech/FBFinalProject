@@ -18,6 +18,7 @@ const ThemeProvider = ({ children }) => {
         root.style.setProperty('--nav-bg', theme === 'dark' ? 'var(--dark-background-color1)' : null);
         root.style.setProperty('--text-color', theme === 'light' ? '#000' : '#fff');
         root.style.setProperty('--text-color-rev', theme === 'light' ? '#fff' : '#000');
+        root.style.setProperty('--text-color-gray2', theme === 'light' ? '#777' : '#fff');
         root.style.setProperty('--text-color-gray', theme === 'light' ? '#bbb' : '#fff');
         root.style.setProperty('--text-color-gray-rev', theme === 'light' ? '#fff' : '#124');
         root.style.setProperty('--icon', theme === 'light' ? '#000249' : 'var(--primary-color)');

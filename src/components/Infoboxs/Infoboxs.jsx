@@ -38,7 +38,7 @@ const Infoboxs = () => {
         </div>
 
         <div className="col-sm-12 col-md-6 col-lg-3">
-          <div className="card-counter danger">
+          <div className="card-counter primary">
             <HiOutlineClipboardDocumentList className="icon" />
             <span className="count-numbers">0</span>
             <span className="count-name">Exams</span>
@@ -46,7 +46,7 @@ const Infoboxs = () => {
         </div>
 
         <div className="col-sm-12 col-md-6 col-lg-3">
-          <div className="card-counter success">
+          <div className="card-counter primary">
             <PiChalkboardTeacher className="icon" />
             <span className="count-numbers">{teacherCount}</span>
             <span className="count-name">Teachers</span>
@@ -54,7 +54,7 @@ const Infoboxs = () => {
         </div>
 
         <div className="col-sm-12 col-md-6 col-lg-3">
-          <div className="card-counter info">
+          <div className="card-counter primary">
             <PiStudent className="icon" />
             <span className="count-numbers">{studentCount}</span>
             <span className="count-name">Students</span>

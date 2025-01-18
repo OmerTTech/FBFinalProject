@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ManageUsers = () => {
   const [allUsers, setAllUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [show, setShow] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -23,9 +24,8 @@ const ManageUsers = () => {
       const users = response.data.map((user) => {
         return jwtDecode(user.accessToken);
       });
-      console.log(users);
-
       setAllUsers(users);
+      setFilteredUsers(users);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -84,12 +84,12 @@ const ManageUsers = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim() === "") {
-      fetchUsers();
+      setFilteredUsers(allUsers)
     } else {
       const filteredUsers = allUsers.filter((user) =>
         user.email.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setAllUsers(filteredUsers);
+    );
+    setFilteredUsers(filteredUsers)
     }
   };
 
@@ -130,7 +130,7 @@ const ManageUsers = () => {
         </div>
         <Table
           Headers={headers}
-          Datas={allUsers}
+          Datas={filteredUsers}
           handleUpdateSave={handleUpdateSave}
           Container={false}
           Actionbtn={"ManageUsers"}

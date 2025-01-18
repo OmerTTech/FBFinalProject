@@ -5,7 +5,7 @@ import { API } from "../../services/Api";
 import { AuthContext } from "../../contexts/AuthContext";
 import { SpinnerInfinity } from "spinners-react";
 
-const NotificationBoxes = ({ isPageDashboard }) => {
+const NotificationBoxes = ({ isPageDashboard, onNotificationCount }) => {
   const [screenSize, setScreenSize] = useState("large");
   const [displayedNotifications, setDisplayedNotifications] = useState([]);
   const { userData, teacher, admin } = useContext(AuthContext);
@@ -22,7 +22,7 @@ const NotificationBoxes = ({ isPageDashboard }) => {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // İlk yüklemede boyutu kontrol et
+    handleResize();
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -56,9 +56,8 @@ const NotificationBoxes = ({ isPageDashboard }) => {
             : filteredNotifications.slice(0, 3)
           : filteredNotifications;
 
-          console.log(notificationsSlicer);
-          
-        setDisplayedNotifications(notificationsSlicer);
+          setDisplayedNotifications(notificationsSlicer);
+        onNotificationCount(filteredNotifications.length);
       } catch (error) {
         console.error("Error fetching notifications:", error);
       }
@@ -67,8 +66,9 @@ const NotificationBoxes = ({ isPageDashboard }) => {
   }, []);
 
   return (
-    <div className="notifications-container d-flex flex-column">
-      {displayedNotifications.length > 0 ? displayedNotifications.map((notification, index) => (
+    <div className="notifications-container d-flex flex-column gap-2">
+      {displayedNotifications.length > 0 ? (
+        displayedNotifications.map((notification, index) => (
           <BoxOfNotification
             key={index}
             type={notification.type}
@@ -76,17 +76,18 @@ const NotificationBoxes = ({ isPageDashboard }) => {
             from={notification.from}
             time={notification.date}
           />
-        )
+        ))
       ) : (
         <p className="alert alert-danger m-0 text-center w-100">
           <SpinnerInfinity
-          size={50}
-          thickness={64}
-          speed={55}
-          color="rgba(57, 152, 172, 1)"
-          secondaryColor="rgba(0, 0, 0, 0.44)"
-          className="mx-3"
-        />
+            size={50}
+            thickness={64}
+            speed={55}
+            // color="rgba(57, 152, 172, 1)"
+            color="rgba(157, 202, 282, 1)"
+            secondaryColor="rgba(0, 0, 0, 0.44)"
+            className="mx-3"
+          />
           No Notification Found..
         </p>
       )}

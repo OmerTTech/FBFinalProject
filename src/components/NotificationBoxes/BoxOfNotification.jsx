@@ -15,9 +15,9 @@ const BoxOfNotification = ({ type, student, from, time }) => {
   };
   return (
     <div
-      className={`card notification new-assignment ${
+      className={`shadow-sm card notification new-assignment ${
         boxType[type] || "Not Found.."
-      }`}
+      }`} style={{ cursor: "pointer" }}
     >
       <div className="card-body d-flex justify-content-between">
         <div>
@@ -34,9 +34,9 @@ const BoxOfNotification = ({ type, student, from, time }) => {
           </p>
         </div>
         {time && (
-          <p className="card-text text-muted text-end">
+          <span className="timestamp">
             <small>{time}</small>
-          </p>
+          </span>
         )}
       </div>
     </div>

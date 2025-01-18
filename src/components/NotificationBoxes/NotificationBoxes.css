@@ -8,13 +8,18 @@
   background-color: var(--background-color1);
   border: 1px solid var(--text-color-gray);
 }
-.notification :is(h5, p, small) {
+.notification :is(h5,p) {
   color: var(--text-color);
 }
 
 .new-task-box {
   border-left: 4px solid #77f;
 }
+.bordex-x-purple {
+  border-left: 4px solid #6f33ca;
+  border-right: 4px solid #6f33ca;
+}
+
 .new-task {
   color: #77f;
 }
@@ -23,6 +28,7 @@
 }
 
 .timestamp {
-  font-size: 0.8rem;
-  color: #777;
+  font-size: 0.9rem;
+  color: var(--text-color-gray2);
+  /* color: #777; */
 }

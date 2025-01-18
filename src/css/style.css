@@ -29,6 +29,7 @@
   --text-color: #000;
   --text-color-rev: #fff;
   --text-color-gray: #bbb;
+  --text-color-gray2: #777;
   --text-color-gray-rev: #555;
   --icon: #000249;
 }
@@ -61,32 +62,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.searchbar2 {
-  display: none;
+
+.viewAll{
+  color: var(--text-color);
 }
 
-.searchbar input {
-  width: 250px;
-  height: 42px;
-  border-radius: 50px 0 0 50px;
-  background-color: var(--background-color3);
-  border: solid 1.5px #ccc;
-  padding: 0 20px;
-  font-size: 15px;
-  outline: none;
-}
-.searchbtn {
-  width: 50px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0px 50px 50px 0px;
-  background-color: var(--secondary-color2);
-  cursor: pointer;
-}
-
-.searchbar,
 .message {
   display: flex;
   align-items: center;

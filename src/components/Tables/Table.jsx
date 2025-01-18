@@ -55,7 +55,7 @@ const Table = ({
             </tr>
           </thead>
           <tbody>
-            {Actionbtn != "ManageUsers" &&
+            {Actionbtn !== "ManageUsers" &&
               Datas?.map((item, index) => (
                 <tr key={index}>
                   {Object.values(item).map((data, i) => (
@@ -84,7 +84,7 @@ const Table = ({
                 <tr key={index}>
                   <td>{item.id}</td>
                   <td>{item.name}</td>
-                  <td>{item.surname}</td>
+                  <td>{item.surname !== "null" ? item.surname : ""}</td>
                   <td>{item.email}</td>
                   <td>
                     <select
@@ -95,8 +95,6 @@ const Table = ({
                           ...item,
                           semester: e.target.value,
                         };
-                        console.log(updatedUser);
-
                         handleUpdateSave(updatedUser);
                       }}
                     >
@@ -114,8 +112,6 @@ const Table = ({
                           ...item,
                           role: e.target.value,
                         };
-                        console.log(updatedUser);
-
                         handleUpdateSave(updatedUser);
                       }}
                     >

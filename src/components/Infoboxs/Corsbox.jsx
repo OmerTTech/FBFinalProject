@@ -1,4 +1,5 @@
 import React from "react";
+import "./Coursesboxs.css"
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 
 const Corsbox = ({title="",text="",length=0}) => {

@@ -20,12 +20,6 @@ const MyCourses = () => {
   useEffect(() => {
     const fetchEnrollments = async () => {
       try {
-        // const response = await API.course.courseEnrollments();
-
-        // const enrollments = response.data?.find(
-        //   (enrollment) => enrollment.studentEmail === userData.email
-        // );
-
         if (userData) {
           const enrolls = userData.enrolls.slice(0, 4);
 
@@ -39,8 +33,6 @@ const MyCourses = () => {
         console.error("Error fetching enrollments:", error);
       }
     };
-    console.log(userData);
-    
     fetchEnrollments();
   }, [allCourses, userData.email]);
 

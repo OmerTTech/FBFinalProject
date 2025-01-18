@@ -1,16 +1,11 @@
+import SearchBar from "material-ui-search-bar";
 import React from "react";
-import { CgSearch } from "react-icons/cg";
+import "./Searchbar.css";
 
 const Searchbar = () => {
   return (
-    <div className="searchbar">
-      <input type="text" placeholder="Search" />
-      <div className="searchbtn">
-        <CgSearch
-          className="text-white icn srchicn"
-          style={{fontSize:"2rem", margin:"0px 0px 0px -5px"}}
-        />
-      </div>
+    <div className="searchbar-parent mx-4">
+      <SearchBar className="shadow-sm"/>
     </div>
   );
 };

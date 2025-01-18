@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./Profile_submenu.css";
 import { FaRegUser } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -12,7 +12,7 @@ const Profile_submenu = () => {
   const { logoutHandler, userData } = useContext(AuthContext);
   
   const fullname = `${userData.name ? userData.name : ""} ${
-    userData.surname ? userData.surname : ""
+    userData.surname ? (userData.surname !== "null" ? userData.surname : "") : ""
   }`;
   const getFullName =
     userData && fullname.length >= 0

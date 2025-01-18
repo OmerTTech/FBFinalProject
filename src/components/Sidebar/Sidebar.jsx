@@ -42,7 +42,7 @@ const Sidebar = () => {
           {/* ONLY STUDENTS: */}
           {!teacher && (
             <NavLink
-              end
+              end 
               to="/courses/register"
               className={
                 window.location.pathname.match(/^\/courses\/(register\/\d+)$/)
@@ -60,7 +60,8 @@ const Sidebar = () => {
               <h4 className="h4-nav">Manage Users</h4>
             </NavLink>
           )}
-          {/* ONLY STUDENTS. */}
+          {/* ONLY STUDENTS AND TEACHERS. */}
+          {!admin && (
           <NavLink
             end
             to="/courses"
@@ -72,13 +73,35 @@ const Sidebar = () => {
           >
             <PiBookOpenText className="icon" />
             <h4 className="h4-nav">My Courses</h4>
-          </NavLink>
+          </NavLink>)}
           {admin && (
             <NavLink end to="/courses/manage" className="nav-option">
               <BiBookAdd className="icon" />
               <h4 className="h4-nav">Manage Courses</h4>
             </NavLink>
           )}
+          {/* ONLY Students and Admin: */}
+          {/* {!teacher && (
+            <NavLink end to="/exams/register" className="nav-option">
+              <BsClipboard2Plus className="icon" />
+              <h4 className="h4-nav">Register Exams </h4>
+            </NavLink>
+          )} */}
+          {/* ONLY Students and Admin. */}
+          <NavLink end to="/exams" className="nav-option">
+            {!admin ? (
+              <LuClipboardSignature className="icon" />
+            ) : (
+              <LuClipboardList className="icon" />
+            )}
+            <h4 className="h4-nav">Exams Results</h4>
+          </NavLink>
+          {/* {admin && (
+            <NavLink end to="/exams/manage" className="nav-option">
+              <TbClipboardData className="icon" />
+              <h4 className="h4-nav">Manage Exams</h4>
+            </NavLink>
+          )} */}
           {/* ONLY STUDENTS: */}
           {(!admin || !teacher) && (
             <NavLink
@@ -95,38 +118,10 @@ const Sidebar = () => {
             </NavLink>
           )}
           {/* ONLY STUDENTS. */}
-          {/* ONLY Students and Admin: */}
-          {!teacher && (
-            <NavLink end to="/exams/register" className="nav-option">
-              <BsClipboard2Plus className="icon" />
-              <h4 className="h4-nav">Register Exams </h4>
-            </NavLink>
-          )}
-          {/* ONLY Students and Admin. */}
-          <NavLink end to="/exams" className="nav-option">
-            {admin || teacher ? (
-              <LuClipboardSignature className="icon" />
-            ) : (
-              <LuClipboardList className="icon" />
-            )}
-            <h4 className="h4-nav">Exam Results</h4>
-          </NavLink>
-          {admin && (
-            <NavLink end to="/exams/manage" className="nav-option">
-              <TbClipboardData className="icon" />
-              <h4 className="h4-nav">Manage Exams</h4>
-            </NavLink>
-          )}
 
-          {(admin || teacher) && (
-            <NavLink to="/exam/results" className="nav-option">
-              <LuClipboardCheck className="icon" />
-              <h4 className="h4-nav">Exam results</h4>
-            </NavLink>
-          )}
           <NavLink to="/class/schedule" className="nav-option">
             <IoCalendarOutline className="icon" />
-            <h4 className="h4-nav">class Schedule</h4>
+            <h4 className="h4-nav">class Schedules</h4>
           </NavLink>
           {(admin || teacher) && (
             <NavLink to="/announcement" className="nav-option">
