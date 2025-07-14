@@ -1,7 +1,7 @@
 <div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-:r15:-trigger-preview" id="radix-:r15:-content-preview" tabindex="0" class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" style=""><div class="border border-border rounded-lg bg-background p-6 shadow-sm"><div class="prose prose-sm md:prose-base lg:prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600" style="user-select: none;"><div id="top" class="">
 
 <div align="center" class="text-center">
-<h1>FBFINALPROJECT</h1>
+<h1>Frontend & Backend Course Final Project</h1>
 <p><em>Empowering Learning Through Seamless Innovation and Engagement</em></p>
 
 <img alt="last-commit" src="https://img.shields.io/github/last-commit/OmerTTech/FBFinalProject?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
