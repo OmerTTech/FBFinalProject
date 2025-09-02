@@ -27,9 +27,9 @@
     "spinners-react": "^1.0.10"
   },
   "scripts": {
-    "start": "react-scripts start; json-server --watch Json/Data.json --port 5001",
-    "server": "json-server --watch Json/Data.json --port 5001",
-    "build": "react-scripts build; json-server --watch Json/Data.json --port 5001",
+    "start": "react-scripts start; json-server --watch Json/Data.json --port 5002",
+    "server": "json-server --watch Json/Data.json --port 5002",
+    "build": "react-scripts build; json-server --watch Json/Data.json --port 5002",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
