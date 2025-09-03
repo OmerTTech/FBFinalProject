@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Table from "../../components/Tables/Table";
 import { API } from "../../services/Api";
 import { jwtDecode } from "jwt-decode";
-import { Button, Modal } from "react-bootstrap";
 import sign from "jwt-encode";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -11,9 +10,6 @@ const ManageUsers = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [show, setShow] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [userRole, setUserRole] = useState("");
   const { userData, getLoginUser, setAdmin, setTeacher } =
     useContext(AuthContext);
   const navigator = useNavigate();

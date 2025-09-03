@@ -8,7 +8,6 @@ import { AuthContext } from "../contexts/AuthContext";
 import AllCourses from "../pages/AllCourses/AllCourses";
 import MyCourses from "../pages/MyCourses/MyCourses";
 import NotFound from "../components/NotFound/NotFound";
-import Assignments from "../pages/Assignments/Assignments";
 import Notifications from "../pages/Notifications/Notifications";
 import TeacherCourses from "../pages/MyCourses/TeacherCourses";
 import { SpinnerInfinity } from "spinners-react";

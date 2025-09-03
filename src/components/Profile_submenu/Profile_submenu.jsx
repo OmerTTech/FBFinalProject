@@ -8,7 +8,7 @@ import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
-const Profile_submenu = () => {
+const ProfileSubmenu = () => {
   const { logoutHandler, userData } = useContext(AuthContext);
   
   const fullname = `${userData.name ? userData.name : ""} ${
@@ -103,4 +103,4 @@ const Profile_submenu = () => {
   );
 };
 
-export default Profile_submenu;
+export default ProfileSubmenu;

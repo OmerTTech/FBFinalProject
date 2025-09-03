@@ -9,16 +9,13 @@ import {
 import { PiBookOpenText } from "react-icons/pi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { MdOutlineLibraryBooks, MdOutlineAssignment } from "react-icons/md";
-import { BsClipboard2Plus } from "react-icons/bs";
 import { BiBookAdd } from "react-icons/bi";
-import { TbClipboardData } from "react-icons/tb";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { FaRegUser } from "react-icons/fa";
 import {
   LuLogOut,
   LuClipboardList,
   LuClipboardSignature,
-  LuClipboardCheck,
 } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { NavContext } from "../../contexts/NavContext";

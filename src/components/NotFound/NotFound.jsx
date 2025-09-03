@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./NotFound.css";
 import { NavContext } from "../../contexts/NavContext";
 

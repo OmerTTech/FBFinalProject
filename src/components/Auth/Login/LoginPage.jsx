@@ -109,6 +109,7 @@ const LoginPage = () => {
             name="email"
             value={inputValues.email}
             onChange={handleInputChange}
+            autoComplete="current-password"
           />
         </div>
 
@@ -124,6 +125,7 @@ const LoginPage = () => {
             name="password"
             value={inputValues.password}
             onChange={handleInputChange}
+            autoComplete="current-password"
           />
 
           {showPassword ? (

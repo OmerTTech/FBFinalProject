@@ -24,11 +24,17 @@ const Dashboard = () => {
         className="d-flex flex-column gap-2"
         style={{ cursor: "default" }}
       >
-        <NotificationBoxes isPageDashboard={"true"} onNotificationCount={handleNotificationCount} />
+        <NotificationBoxes
+          isPageDashboard={"true"}
+          onNotificationCount={handleNotificationCount}
+        />
         {notificationCount > 0 && (
-          <div className={`bordex-x-purple shadow-sm card notification new-assignment`}>
+          <div
+            className={`bordex-x-purple shadow-sm card notification new-assignment`}
+          >
             <div className="card-body p-1 d-flex justify-content-between">
-              <Link to="/notifications" className="viewAll mx-auto">View all notifications</Link>
+              {/* İçteki linki kaldırıyoruz. */}
+              <span className="viewAll mx-auto">View all notifications</span>
             </div>
           </div>
         )}

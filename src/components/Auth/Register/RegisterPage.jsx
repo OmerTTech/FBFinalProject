@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../Auth.css";
 import { FiAtSign } from "react-icons/fi";
 import { IoLockClosedOutline } from "react-icons/io5";

@@ -11,7 +11,6 @@ const TeacherCourses = () => {
   const { allCourses, setAllCourses } = useContext(CourseContext);
   const { userData } = useContext(AuthContext);
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchbtn, setSearchbtn] = useState(true);
   const [myCourses, setMyCourses] = useState([]);
   const [show, setShow] = useState(false);
   const [courseName, setCourseName] = useState("");
@@ -25,7 +24,6 @@ const TeacherCourses = () => {
 
       setMyCourses(filteredCourses);
     }
-    setSearchbtn(!searchbtn);
   }, [allCourses, userData]);
 
   const headers = [
@@ -59,18 +57,18 @@ const TeacherCourses = () => {
         await API.course.deleteCourse(courseId);
 
         // Delete the associated notification
-      const notificationResponse = await API.notification.allNotifications();
-      const notifications = notificationResponse.data;
+        const notificationResponse = await API.notification.allNotifications();
+        const notifications = notificationResponse.data;
 
-      // Find the notification associated with the course
-      const notificationToDelete = notifications.find(
-        (notification) =>
-          notification.type === "newCourse" && notification.id === courseId
-      );
+        // Find the notification associated with the course
+        const notificationToDelete = notifications.find(
+          (notification) =>
+            notification.type === "newCourse" && notification.id === courseId
+        );
 
-      if (notificationToDelete) {
-        await API.notification.deleteNotification(notificationToDelete.id);
-      }
+        if (notificationToDelete) {
+          await API.notification.deleteNotification(notificationToDelete.id);
+        }
 
         const response = await API.auth.allUsers();
         const users = response.data.map((user) => {
@@ -89,7 +87,9 @@ const TeacherCourses = () => {
 
           const newAccessToken = sign(newUserData, "your-256-bit-secret");
 
-          await API.auth.updateUser(newUserData.id, { accessToken: newAccessToken });
+          await API.auth.updateUser(newUserData.id, {
+            accessToken: newAccessToken,
+          });
         }
 
         const updatedCoursesResponse = await API.course.courses();

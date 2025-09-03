@@ -8,7 +8,7 @@ import { SpinnerInfinity } from "spinners-react";
 const NotificationBoxes = ({ isPageDashboard, onNotificationCount }) => {
   const [screenSize, setScreenSize] = useState("large");
   const [displayedNotifications, setDisplayedNotifications] = useState([]);
-  const { userData, teacher, admin } = useContext(AuthContext);
+  const { userData, teacher } = useContext(AuthContext);
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,7 +63,7 @@ const NotificationBoxes = ({ isPageDashboard, onNotificationCount }) => {
       }
     };
     getNotifications();
-  }, []);
+  }, [isPageDashboard, onNotificationCount, screenSize, teacher, userData.email]);
 
   return (
     <div className="notifications-container d-flex flex-column gap-2">

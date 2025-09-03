@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import "../../css/responsive.css";
-import Profile_submenu from "../Profile_submenu/Profile_submenu";
+import ProfileSubmenu from "../Profile_submenu/Profile_submenu";
 import { FiMenu } from "react-icons/fi";
 import { IoMdNotifications } from "react-icons/io";
 import { ThemeContext } from "../../contexts/ThemeContext";
@@ -56,7 +56,7 @@ const Header = () => {
             }}
           />
         </Link>
-        <Profile_submenu />
+        <ProfileSubmenu />
       </div>
     </header>
   );

@@ -34,7 +34,7 @@ const MyCourses = () => {
       }
     };
     fetchEnrollments();
-  }, [allCourses, userData.email]);
+  }, [allCourses, userData]);
 
   return (
     <div>
