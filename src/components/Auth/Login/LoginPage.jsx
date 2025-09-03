@@ -8,6 +8,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { API } from "../../../services/Api";
 import { jwtDecode } from "jwt-decode";
+import { Modal, Button } from "react-bootstrap";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +20,13 @@ const LoginPage = () => {
   const [emailBorder, setEmailBorder] = useState("");
   const [passwordBorder, setPasswordBorder] = useState("");
   const { setAccessToken } = useContext(AuthContext);
+
+  // Modal durumunu yöneten state
+  const [showDemoModal, setShowDemoModal] = useState(false);
+
+  // Modal açma ve kapama fonksiyonları
+  const handleShowDemoModal = () => setShowDemoModal(true);
+  const handleCloseDemoModal = () => setShowDemoModal(false);
 
   const getShowPass = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -38,10 +46,27 @@ const LoginPage = () => {
     }
   };
 
+  const handleDemoLogin = (userType) => {
+    if (userType === "student") {
+      setInputValues({
+        email: "user@gmail.com",
+        password: "User123",
+      });
+    } else if (userType === "teacher") {
+      setInputValues({
+        email: "teacher@gmail.com",
+        password: "Teacher123",
+      });
+    }
+    setEmailBorder("");
+    setPasswordBorder("");
+    handleCloseDemoModal(); // Modalı kapat
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setShowPassword(false);
-  
+
     if (!inputValues.email && !inputValues.password) {
       toast.error("Email and Password cannot be blank");
       setEmailBorder("red");
@@ -59,7 +84,7 @@ const LoginPage = () => {
       setEmailBorder("");
       setPasswordBorder("");
     }
-  
+
     try {
       const response = await API.auth.allUsers();
       const users = response.data.map((user) => {
@@ -67,13 +92,13 @@ const LoginPage = () => {
         return { ...decoded, accessToken: user.accessToken };
       });
       const user = users.find((user) => user.email === inputValues.email);
-  
+
       if (!user) {
         toast.error("Account not found!");
         setEmailBorder("red");
         return;
       }
-  
+
       if (user.password === inputValues.password) {
         const token = user.accessToken;
         if (rememberMe) {
@@ -97,6 +122,17 @@ const LoginPage = () => {
       style={{ height: "100vh" }}
     >
       <form onSubmit={submitHandler} className="form">
+        {/* Demo butonu burada, formun içinde! */}
+        <div>
+          <Button
+            onClick={handleShowDemoModal}
+            variant="info"
+            className="mt-0 mb-2"
+          >
+            Demo Users
+          </Button>
+        </div>
+
         <div className="flex-column">
           <label>Email </label>
         </div>
@@ -167,6 +203,35 @@ const LoginPage = () => {
           </Link>
         </p>
       </form>
+
+      {/* Demo Login Modalı */}
+      <Modal show={showDemoModal} onHide={handleCloseDemoModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Demo Users</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Please select a demo account to log in automatically.</p>
+          <div className="d-flex flex-column gap-2">
+            <span style={{ cursor: "not-allowed" }}>
+              <Button disabled variant="secondary">
+                Admin account
+              </Button>
+            </span>
+            <Button
+              variant="secondary"
+              onClick={() => handleDemoLogin("teacher")}
+            >
+              Teacher account
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => handleDemoLogin("student")}
+            >
+              Student account
+            </Button>
+          </div>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
